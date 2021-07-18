@@ -6,11 +6,16 @@ nav:
     - Using the desktop client: tutorials/client/gui.md
     - Using the terminal client: tutorials/client/terminal.md
   - Specification:
-    - Instance: specification/instance.md
-    - Agent: specification/agent.md
-    - Server: specification/server.md
-    - Client/Server: specification/clientserver.md
-    - Server/Agent: specification/serveragent.md
+    - General:
+      - Module: specification/module.md
+      - Instance: specification/instance.md
+    - Instances:
+      - Agent: specification/agent.md
+      - Server: specification/server.md
+      - Distagent: specification/distagent.md
+    - Messages:
+      - Client/Server: specification/clientserver.md
+      - Server/Agent: specification/serveragent.md
     - Plugins:
       - Device Plugin: specification/plugins/device.md
       - Filesystem Plugin: specification/plugins/filesystem.md

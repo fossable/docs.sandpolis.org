@@ -1,6 +1,40 @@
 # Instance
 The following sections apply to all Sandpolis instances.
 
+## Instance Types
+Every instance belongs to one of four mutually exclusive _instance types_. There
+is often more than one implementation in each category.
+
+| Instance Type | Description                                                  |
+|---------------|--------------------------------------------------------------|
+| Server        | A headless application that coordinates communication between clients and agents |
+| Agent         | A headless application that runs continuously on hosts in the Sandpolis network |
+| Client        | A UI application used for managing agents and servers |
+| Distagent     | A headless application that installs or updates an agent |
+
+### Instance Flavors (subtypes)
+Each instance type may have multiple implementations (or flavors) to support a
+variety of use cases. Flavors are identified by a codename and also have a
+user-friendly "official" name.
+
+| Type       | Flavor codename | Implementation languages | Official name            |
+|------------|-----------------|--------------------------|--------------------------|
+| Server     | Vanilla         | Java                     | Server                   |
+| Client     | Lifegem         | Java, Kotlin             | Desktop Client           |
+| Client     | Ascetic         | Java                     | Terminal Client          |
+| Client     | Lockstone       | Swift                    | iOS Client               |
+| Agent      | Kilo            | Java                     | Agent                    |
+| Agent      | Micro           | Rust                     | Native Agent             |
+| Agent      | Nano            | C++                      | Minimal Agent            |
+| Distagent  | Rust            | Rust                     | Agent distributor (Rust) |
+| Distagent  | Java            | Java                     | Agent distributor (Java) |
+
+## Instance Configuration
+
+| Property                        | Default      | Description                                    |
+|---------------------------------|--------------|------------------------------------------------|
+| `s7s.runtime.residency`         |              | Whether the instance is running in a container |
+
 ## Data Model
 There are three layers in the Sandpolis data model. Of which, client implementations
 are required to support at least two (ST and OID layers).
@@ -54,17 +88,3 @@ The Sandpolis network protocol is based on [protocol buffers](https://github.com
 
 ### Request/Response messages
 ### Event messages
-
-## Official Instances
-The following instance types are constituents of Sandpolis.
-
-| Name              | Type       | Codename                       | Implementation languages |
-|-------------------|------------|--------------------------------|--------------------------|
-| Server            | Server     | com.sandpolis.server.vanilla   | Java                     |
-| Desktop Client    | Client     | com.sandpolis.client.lifegem   | Java, Kotlin             |
-| Terminal Client   | Client     | com.sandpolis.client.ascetic   | Java                     |
-| iOS Client        | Client     | com.sandpolis.client.lockstone | Swift                    |
-| Agent             | Agent      | com.sandpolis.agent.kilo       | Java                     |
-| Native Agent      | Agent      | com.sandpolis.agent.micro      | Rust                     |
-| Minimal Agent     | Agent      | com.sandpolis.agent.nano       | C++                      |
-| Agent distributor | Distagent  | com.sandpolis.distagent        | Rust                     |
