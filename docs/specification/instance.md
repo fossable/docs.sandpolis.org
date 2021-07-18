@@ -48,3 +48,23 @@ Every node in a ST Tree is uniquely identified by an OID. OIDs are sequences of 
 separated strings that describe how to reach the corresponding node from the root
 node. OIDs also have a string namespace identifier that identifies the plugin or
 module to which the OID belongs.
+
+## Message Format
+The Sandpolis network protocol is based on [protocol buffers](https://github.com/protocolbuffers/protobuf).
+
+### Request/Response messages
+### Event messages
+
+## Official Instances
+The following instance types are constituents of Sandpolis.
+
+| Name              | Type       | Codename                       | Implementation languages |
+|-------------------|------------|--------------------------------|--------------------------|
+| Server            | Server     | com.sandpolis.server.vanilla   | Java                     |
+| Desktop Client    | Client     | com.sandpolis.client.lifegem   | Java, Kotlin             |
+| Terminal Client   | Client     | com.sandpolis.client.ascetic   | Java                     |
+| iOS Client        | Client     | com.sandpolis.client.lockstone | Swift                    |
+| Agent             | Agent      | com.sandpolis.agent.kilo       | Java                     |
+| Native Agent      | Agent      | com.sandpolis.agent.micro      | Rust                     |
+| Minimal Agent     | Agent      | com.sandpolis.agent.nano       | C++                      |
+| Agent distributor | Distagent  | com.sandpolis.distagent        | Rust                     |

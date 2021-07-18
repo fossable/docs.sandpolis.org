@@ -21,20 +21,23 @@
 // Response:     Outcome
 ```
 
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | password         | string     | 8 - 64 characters         | The password text                                        |
 
-### RQ_CertAuth
+### RQ_TokenAuth
 
 ```java
-// Attempt to authenticate as an agent using a "client" certificate.
+// Attempt to authenticate as an agent using a one-time token.
 //
 // Source:       Agent
 // Destination:  Server
 // Response:     Outcome
 ```
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| token            | string     | 8 characters              | The authentication token                                 |
 
 ## General Messages
 ### RQ_AgentMetadata
@@ -57,7 +60,6 @@
 // Request:      RQ_AgentMetadata
 ```
 
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | hostname         | string     | 0 - 64 characters         | The agent's network hostname                             |
