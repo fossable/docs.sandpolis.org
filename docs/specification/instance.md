@@ -7,27 +7,28 @@ is often more than one implementation in each category.
 
 | Instance Type | Description                                                  |
 |---------------|--------------------------------------------------------------|
-| Server        | A headless application that coordinates communication between clients and agents |
-| Agent         | A headless application that runs continuously on hosts in the Sandpolis network |
-| Client        | A UI application used for managing agents and servers |
-| Distagent     | A headless application that installs or updates an agent |
+| `server`      | A headless application that coordinates communication between clients and agents |
+| `agent`       | A headless application that runs continuously on hosts in the Sandpolis network |
+| `client`      | A UI application used for managing agents and servers |
+| `distagent`   | A headless application that installs or updates an agent |
 
 ### Instance Flavors (subtypes)
 Each instance type may have multiple implementations (or flavors) to support a
 variety of use cases. Flavors are identified by a codename and also have a
 user-friendly "official" name.
 
-| Type       | Flavor codename | Implementation languages | Official name            |
-|------------|-----------------|--------------------------|--------------------------|
-| Server     | Vanilla         | Java                     | Server                   |
-| Client     | Lifegem         | Java, Kotlin             | Desktop Client           |
-| Client     | Ascetic         | Java                     | Terminal Client          |
-| Client     | Lockstone       | Swift                    | iOS Client               |
-| Agent      | Kilo            | Java                     | Agent                    |
-| Agent      | Micro           | Rust                     | Native Agent             |
-| Agent      | Nano            | C++                      | Minimal Agent            |
-| Distagent  | Rust            | Rust                     | Agent distributor (Rust) |
-| Distagent  | Java            | Java                     | Agent distributor (Java) |
+| Type        | Flavor codename | Implementation languages | Official name            |
+|-------------|-----------------|--------------------------|--------------------------|
+| `server`    | `vanilla`       | Java                     | Server                   |
+| `client`    | `lifegem`       | Java, Kotlin             | Desktop Client           |
+| `client`    | `ascetic`       | Java                     | Terminal Client          |
+| `client`    | `lockstone`     | Swift                    | iOS Client               |
+| `client`    | `brightstone`   | JavaScript               | Web Client               |
+| `agent`     | `kilo`          | Java                     | Agent                    |
+| `agent`     | `micro`         | Rust                     | Native Agent             |
+| `agent`     | `nano`          | C++                      | Minimal Agent            |
+| `distagent` | `rust`          | Rust                     | Agent distributor (Rust) |
+| `distagent` | `java`          | Java                     | Agent distributor (Java) |
 
 ## Instance Configuration
 
