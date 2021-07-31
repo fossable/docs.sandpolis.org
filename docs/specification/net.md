@@ -1,5 +1,13 @@
 # Net Messages
 
+| Message              | Sources           | Destinations      | Description                                       |
+|----------------------|-------------------|-------------------|---------------------------------------------------|
+| RQ_Session           |
+| RS_Session           |
+| RQ_AddConnection     |
+| RQ_CoordinateConnection |
+| EV_NetworkChanged    |                                       | Indicates that some node in the network has changed in connection status |
+
 ## Session
 Clients and agents maintain an ephemeral session which consists of a session identifier
 and authentication state.
@@ -42,9 +50,7 @@ The receiver should attempt the connection as soon as possible.
 | encryption_key   | bytes      | 64 bytes                  | The initial encryption key for the new connection        |
 
 ### EV_NetworkChanged
-Indicates that some node in the network has changed in connection status.
 
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | added_node       |            |                           |   |

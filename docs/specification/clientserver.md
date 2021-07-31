@@ -1,27 +1,20 @@
 # Client/Server Messages
 
-## Server
+| Message              | Sources           | Destinations      | Description                                       |
+|----------------------|-------------------|-------------------|---------------------------------------------------|
+| RQ_ServerBanner      | `client`          | `server`          | Request the server's banner                       |
+| RS_ServerBanner      | `server`          | `client`          | Response containing the server's banner           |
+| RQ_Logout            | `client`          | `server`          | Request that the current login session be terminated |
+| RQ_Login             | `client`          | `server`          | Request a new login session                       |
+
+## Message Formats
 ### RQ_ServerBanner
 
-```java
-// Request the server's banner.
-//
-// Source:       Client
-// Destination:  Server
-// Request:      RS_ServerBanner
-```
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
 
 ### RS_ServerBanner
 
-```java
-// Response with the server's banner.
-//
-// Source:       Server
-// Destination:  Client
-// Request:      RQ_ServerBanner
-```
-
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | maintenance      | bool       |                           | Indicates that only superusers will be allowed to login  |
@@ -29,28 +22,13 @@
 | message          | string     | 0 - 128 characters        | The banner text message                                  |
 | image            | bytes      | 0 - 1 MiB PNG format      | The banner image                                         |
 
-## Login
 ### RQ_Logout
 
-```java
-// Attempt to logout.
-//
-// Source:       Client
-// Destination:  Server
-// Response:     Outcome
-```
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
 
 ### RQ_Login
 
-```java
-// Attempt to login.
-//
-// Source:       Client
-// Destination:  Server
-// Response:     Outcome
-```
-
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | username         | string     | 5 - 32 characters         | The username                                             |

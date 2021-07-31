@@ -16,46 +16,57 @@ to/from agents.
 Snapshot contents are stored in QEMU qcow2 files on the server. This format is
 mature and supports useful features like compression and encryption.
 
-## Agent
-
-### Bootagent
-A bootagent is responsible for reading/writing the actual data to/from the agent's
-disks.
-
-#### Residency
-The bootagent runs in a minimized Alpine Linux environment.
+## Boot Agent
+All snapshot read/write operations are run from a boot agent rather than the regular
+agent. This ensures snapshots are perfectly consistent, but implies some amount
+of downtime during the operation.
 
 #### Create Snapshot
-If there exist no previous snapshots, the bootagent first determines the appropriate
+If there exist no previous snapshots, the boot agent first determines the appropriate
 block size for the disk. The agent may take into account the size of the disk or
 the erase-block size of an SSD, but the block size must be a power of two.
 
-If allowed, the agent will wipe the disk's free space before continuing. This can
+If allowed, the boot agent will wipe the disk's free space before continuing. This can
 significantly decrease the size of the resulting snapshot because empty blocks are
 omitted.
 
-If there exists a previous snapshot for the disk, the agent receives a stream of
+If there exists a previous snapshot for the disk, the boot agent receives a stream of
 block hashes. A single worker thread reads blocks from the disk and compares their hashes
 against the block hashes retrieved from the server. If the hashes do not match,
 the block is passed into a send queue to be egressed to the server.
 
 #### Apply Snapshot
-If there exists a previous snapshot for the disk, the agent initiates a stream of
+If there exists a previous snapshot for the disk, the boot agent initiates a stream of
 block hashes. A single worker thread reads blocks from the disk and passes their
 hashes into a send queue to be egressed to the server.
 
-Simultaneously, the agent receives a stream of block data which are placed into
+Simultaneously, the boot agent receives a stream of block data which are placed into
 a write queue to be written to the device.
 
 ## Snapshot Messages
-### EV_SnapshotDataBlock
 
-```java
-// Contains snapshot data.
-//
-// Source:       Server, Agent
-// Destination:  Server, Agent
-```
+| Message              | Response | Sources           | Destinations      | Description                                       |
+|----------------------|----------|-------------------|-------------------|---------------------------------------------------|
+| RQ_SnapshotCreate    | Outcome  |
+| RQ_SnapshotApply     | Outcome  | `server`, `agent` | `server`, `agent` |
+| RQ_SnapshotStream    | Outcome  | `server`          | `agent`           | Create a new snapshot stream                      |
+| EV_SnapshotDataBlock |          | `server`, `agent` | `server`, `agent` | A message containing compressed snapshot data     |
+| EV_SnapshotHashBlock |          | `server`, `agent` | `server`, `agent` | A message containing one or more contiguous block hashes |
+
+### RQ_SnapshotCreate
+
+### RQ_SnapshotApply
+
+### RQ_SnapshotStream
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| stream_id        | int32      |                           | The stream's ID                                          |
+| operation        | string     | "create" or "apply"       | The snapshot operation type                              |
+| path             | string     |                           | The target device or partition path                      |
+| block_size       | int32      |                           | The block size in bytes                                  |
+
+### EV_SnapshotDataBlock
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
@@ -63,13 +74,6 @@ a write queue to be written to the device.
 | data             | bytes      |                           | The block's contents compressed with zlib                |
 
 ### EV_SnapshotHashBlock
-
-```java
-// Contains a list of contiguous snapshot hashes.
-//
-// Source:       Server, Agent
-// Destination:  Server, Agent
-```
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|

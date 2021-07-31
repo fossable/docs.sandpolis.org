@@ -25,3 +25,17 @@ A client's filesystem may be mounted to a mountpoint on an agent's machine.
 | `client.fs.mount`            | Rights to mount the current client's filesystem                                                          |
 | `client.fs.read`             | Rights to read the current client's filesystem                                                           |
 | `client.fs.write`            | Rights to write the current client's filesystem                                                          |
+
+## Messages
+
+| Message              | Sources           | Destinations      | Description                                       |
+|----------------------|-------------------|-------------------|---------------------------------------------------|
+| RQ_DirectoryListing  | `client`          | `agent`           |
+| RS_DirectoryListing  | `agent`           | `client`          |
+| RQ_MountDirectory    | `client`          | `agent`           |
+| RQ_UnmountDirectory  | `client`          | `agent`           |
+| RQ_FileStats         | `client`          | `agent`           |
+| RS_FileStats         |
+| RQ_DeleteFile        | `client`          | `agent`           |
+| RQ_DirectoryStream   | `client`          | `agent`           |
+| EV_DirectoryChange   | `agent`           | `client`          |
