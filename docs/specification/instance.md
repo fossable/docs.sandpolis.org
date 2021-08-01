@@ -27,6 +27,7 @@ user-friendly "official" name.
 | `agent`     | `kilo`          | Java                     | Agent                    |
 | `agent`     | `micro`         | Rust                     | Native Agent             |
 | `agent`     | `nano`          | C++                      | Minimal Agent            |
+| `agent`     | `boot`          | Rust                     | Boot Agent               |
 | `distagent` | `rust`          | Rust                     | Agent distributor (Rust) |
 | `distagent` | `java`          | Java                     | Agent distributor (Java) |
 

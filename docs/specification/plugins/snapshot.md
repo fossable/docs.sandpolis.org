@@ -8,6 +8,17 @@ block has a corresponding block hash which is the murmur3 128-bit hash of its co
 
 ## File-based snapshots
 
+## Partition size considerations
+### On-premise Server
+(1 TiB) = (100 MiB / s) * t
+
+t = 1000 s ~ 16 minutes
+
+### Off-premise Server
+(1 TiB) = (1 MiB / s) * t
+
+t = 100000 s ~ 27 hours
+
 ## Server
 The server is responsible for storing snapshot data and uploading/downloading it
 to/from agents.
@@ -45,13 +56,13 @@ a write queue to be written to the device.
 
 ## Snapshot Messages
 
-| Message              | Response | Sources           | Destinations      | Description                                       |
-|----------------------|----------|-------------------|-------------------|---------------------------------------------------|
-| RQ_SnapshotCreate    | Outcome  |
-| RQ_SnapshotApply     | Outcome  | `server`, `agent` | `server`, `agent` |
-| RQ_SnapshotStream    | Outcome  | `server`          | `agent`           | Create a new snapshot stream                      |
-| EV_SnapshotDataBlock |          | `server`, `agent` | `server`, `agent` | A message containing compressed snapshot data     |
-| EV_SnapshotHashBlock |          | `server`, `agent` | `server`, `agent` | A message containing one or more contiguous block hashes |
+| Message              | Sources           | Destinations      | Description                                       |
+|----------------------|-------------------|-------------------|---------------------------------------------------|
+| RQ_SnapshotCreate    | `client`          | `server`          |
+| RQ_SnapshotApply     | `client`          | `server`          |
+| RQ_SnapshotStream    | `server`          | `agent`           | Create a new snapshot stream                      |
+| EV_SnapshotDataBlock | `server`, `agent` | `server`, `agent` | A message containing compressed snapshot data     |
+| EV_SnapshotHashBlock | `server`, `agent` | `server`, `agent` | A message containing one or more contiguous block hashes |
 
 ### RQ_SnapshotCreate
 

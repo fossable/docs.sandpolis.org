@@ -111,29 +111,29 @@ can then be used to install an agent on a remote system.
 - Native agent (com.sandpolis.agent.micro)
 - Minimal agent (com.sandpolis.agent.nano)
 
-### Installers
-On execution, installers set up the agent base directory according to its configuration
+### Distagents
+On execution, distagents set up the agent base directory according to its configuration
 and executes the agent. If the target directory already contains an installation,
 the old installation is entirely overwritten.
 
-#### Installer Configuration
-Installers have an embedded configuration file called `install.properties` that
+#### Distagent Configuration
+Distagents have an embedded configuration file called `distagent.properties` that
 describes how the installation process should proceed.
 
 | Property                     | Description                                                                                              |
 |------------------------------|----------------------------------------------------------------------------------------------------------|
-| `agent.type`                 | The agent type (vanilla, micro, or nano)                                                                 |
-| `agent.path`                 | The filesystem path                                                                                      |
-| `agent.auth.scheme`          | The name of the authentication scheme to use (password or certificate)                                   |
-| `install.recover`            | Whether the installation should attempt to continue if errors occur                                      |
+| `s7s.distagent.target_type`  | The agent type (vanilla, micro, or nano)                                                                 |
+| `s7s.distagent.target_path`  | The filesystem path                                                                                      |
+| `s7s.distagent.auth.scheme`  | The name of the authentication scheme to use (password or certificate)                                   |
+| `s7s.distagent.recover`      | Whether the installation should attempt to continue if errors occur                                      |
 
 ### Packager
-A packager is responsible for creating an agent installer binary according to the
+A packager is responsible for creating a distagent binary according to the
 parameters set out in an authentication group.
 
 ### Deployer
-A deployer is responsible for deploying generated agent installers to remote
-systems automatically.
+A deployer is responsible for deploying generated distagents to remote systems
+automatically.
 
 #### SSH Deployer
 The SSH deployer first determines the remote system type and invokes an appropriate

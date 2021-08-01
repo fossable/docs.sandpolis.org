@@ -3,6 +3,14 @@ At a general level, agents are responsible for carrying out tasks for remote
 users. They can connect over the network to any other type of instance. At minimum,
 agents must be associated with one server.
 
+## Build Metadata
+
+| Property   | Description |
+|------------|-------------|
+| `s7s.build.version` | The instance's version string |
+| `s7s.build.platform` | The build platform's name |
+| `s7s.build.timestamp` | UTC epoch timestamp |
+
 ## Agent Configuration
 The agent's configuration is represented in standard Java properties format and
 is named `agent.properties`. The configuration may be embedded in the agent's executable
@@ -10,13 +18,10 @@ or configured by the user at runtime.
 
 | Property   | Description |
 |------------|-------------|
-| `instance.version` | The instance's version string |
-| `build.platform` | The build platform's name |
-| `build.timestamp` | UTC epoch timestamp |
-| `server.address` | A CSV of IP addresses or domain names including port information |
-| `server.timeout` | The server connection timeout in milliseconds |
-| `server.strict_certs` | The agent will refuse to connect to a server that presents an invalid certificate |
-| `agent.polling.interval` | The connection poll interval in milliseconds |
+| `s7s.agent.network.server_address` | A CSV of IP addresses or domain names including port information |
+| `s7s.agent.network.timeout` | The server connection timeout in milliseconds |
+| `s7s.agent.network.strict_certs` | The agent will refuse to connect to a server that presents an invalid certificate |
+| `s7s.agent.network.polling_interval` | The connection poll interval in milliseconds |
 
 ## Connection Modes
 There are two connection modes that have an impact on performance and latency.
@@ -74,3 +79,60 @@ the server to fetch the agent configuration, generate a new installer, and trans
 it to the agent. The agent then executes the new installer and terminates.
 
 ### Container Resident
+
+## Boot Agent
+Boot agents are a special subset of agent instances that run in a custom UEFI boot
+environment rather than on a host's OS.
+
+### Configuration
+The boot agent accepts the following specific configuration options.
+
+| Property                           | Default      | Description                                    |
+|------------------------------------|--------------|------------------------------------------------|
+| `s7s.agent.boot.network.interface` |              | A specific network interface to use            |
+| `s7s.agent.boot.network.dhcp`      | true         | Whether the boot agent will attempt to obtain a DHCP address  |
+| `s7s.agent.boot.network.ip`        |              | A static IPv4 that will be used instead of DHCP |
+| `s7s.agent.boot.network.netmask`   |              | The network mask for the static IPv4 address   |
+
+### Boot Environment
+The boot agent environment occupies an entire partition on the host and contains:
+
+- A bootloader
+- A Linux kernel
+- `efibootmgr` executables
+- Boot agent executables
+- All library dependencies
+
+### Startup
+The boot environment does not provide a shell and merely executes the boot agent
+on startup.
+
+The boot agent immediately spawns an infinite connection loop for the configured
+server.
+
+### Installation
+Agent instances are capable of installing a boot agent on their host machine if
+installed with sufficient permissions.
+
+downloads a boot agent image to the
+partition and writes a new configuration according to parameters of the host OS
+or overrides provided by a client.
+
+Once the partition is written, the agent adds it to the end of the existing EFI
+boot order.
+
+#### Host Media
+In order to install the boot agent to the existing disk, a new partition of at
+least 250 MiB must first be created manually. The agent installs an additional
+bootloader to the existing ESP.
+
+#### Removable Media
+The agent can erase an existing disk and create a new ESP and boot agent partition.
+
+### Uninstallation
+To uninstall, an agent must remove the boot agent's entry in the EFI boot order
+and overwrite all data in the boot agent partition.
+
+### Reboot into boot agent
+Agents can launch the boot agent indirectly by setting the `BootNext` variable
+to the index of the boot agent EFI entry and rebooting the machine.
