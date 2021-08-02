@@ -2,31 +2,30 @@
 
 | Message               | Sources            | Destinations       | Description                                       |
 |-----------------------|--------------------|--------------------|---------------------------------------------------|
-| RQ_NoAuth             | `agent`            | `server`           | Request to authenticate the agent session without providing anything |
-| RQ_PasswordAuth       | `agent`            | `server`           | Request to authenticate the agent session using a simple password |
-| RQ_TokenAuth          | `agent`            | `server`           | Request to authenticate the agent session using a one-time token |
+| RQ_AuthSession        | `agent`            | `server`           | Request to authenticate an agent session |
+| RQ_RefreshAuthCertificate | `server`       | `agent`            | Request to refresh an agent's authentication certificate |
 | RQ_AgentMetadata      | `server`           | `agent`            | Request agent metadata                            |
 | RS_AgentMetadata      | `agent`            | `server`           | Response containing agent metadata                |
-| RQ_FindBootAgent      | `client`, `server` | `agent`            | Request to locate installed boot agents           |
-| RS_FindBootAgent      | `agent`            | `client`, `server` | Response listing boot agent installations         |
-| RQ_InstallBootAgent   | `client`, `server` | `agent`            | Request a boot agent be installed on the host     |
-| RQ_UninstallBootAgent | `client`, `server` | `agent`            | Request a boot agent be uninstalled from the host |
+| RQ_FindBootAgents     | `client`, `server` | `agent`            | Request to locate all installed boot agents       |
+| RS_FindBootAgents     | `agent`            | `client`, `server` | Response listing boot agent installations         |
+| RQ_FindBootAgentCandidates | `client`, `server` | `agent`            | Request candidate partitions and devices that may be suitable for a boot agent installation |
+| RS_FindBootAgentCandidates | `agent`            | `client`, `server` | Response listing boot agent installation candidates |
+| RQ_InstallBootAgent   | `client`, `server` | `agent`            | Request a boot agent be installed on the system   |
+| RQ_UninstallBootAgent | `client`, `server` | `agent`            | Request a boot agent be uninstalled from the system |
 | RQ_LaunchBootAgent    | `client`, `server` | `agent`            | Request that the boot agent be started            |
 
 ## Agent Authentication Messages
-### RQ_NoAuth
-
-### RQ_PasswordAuth
+### RQ_AuthSession
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | password         | string     | 8 - 64 characters         | The password text                                        |
+| token            | string     | 8 characters              | The authentication token                                 |
 
-### RQ_TokenAuth
+### RQ_RefreshAuthCertificate
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
-| token            | string     | 8 characters              | The authentication token                                 |
 
 ## General Messages
 ### RQ_AgentMetadata
@@ -38,15 +37,31 @@
 | hostname         | string     | 0 - 64 characters         | The agent's network hostname                             |
 | os               | OsType     |                           | The agent's OS family                                    |
 | arch             | string     |                           | The agent's CPU architecture                             |
+| boot_agent_detected | bool    |                           | Whether a boot agent was detected on the system          |
 
 ## Boot Agent Messages
-### RQ_FindBootAgent
-### RS_FindBootAgent
+### RQ_FindBootAgents
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+
+### RS_FindBootAgents
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 
 ### RQ_InstallBootAgent
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| partition_uuid   | string     |                           | The UUID of the target partition                         |
+| device_uuid      | string     |                           | The UUID of the target device                            |
+| interface_mac    | string     |                           | The MAC address of the network interface to use for connections |
+| use_dhcp         | bool       |                           | Whether DHCP will be used                                |
+| static_ip        | string     |                           | A static IP address as an alternative to DHCP            |
+| netmask          | string     |                           | The netmask corresponding to the static IP               |
+| gateway_ip       | string     |                           | The gateway IP                                           |
+
 ### RQ_UninstallBootAgent
 
 | Field            | Type       | Requirements              | Description                                              |

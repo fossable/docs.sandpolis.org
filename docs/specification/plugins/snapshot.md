@@ -58,15 +58,26 @@ a write queue to be written to the device.
 
 | Message              | Sources           | Destinations      | Description                                       |
 |----------------------|-------------------|-------------------|---------------------------------------------------|
-| RQ_SnapshotCreate    | `client`          | `server`          |
-| RQ_SnapshotApply     | `client`          | `server`          |
+| RQ_CreateSnapshot    | `client`          | `server`          | Create a new snapshot on a target agent           |
+| RQ_ApplySnapshot     | `client`          | `server`          | Apply an existing snapshot on a target agent      |
 | RQ_SnapshotStream    | `server`          | `agent`           | Create a new snapshot stream                      |
-| EV_SnapshotDataBlock | `server`, `agent` | `server`, `agent` | A message containing compressed snapshot data     |
-| EV_SnapshotHashBlock | `server`, `agent` | `server`, `agent` | A message containing one or more contiguous block hashes |
+| EV_SnapshotDataBlock | `server`, `agent` | `server`, `agent` | An event containing compressed snapshot data      |
+| EV_SnapshotHashBlock | `server`, `agent` | `server`, `agent` | An event containing one or more contiguous block hashes |
 
-### RQ_SnapshotCreate
+### RQ_CreateSnapshot
 
-### RQ_SnapshotApply
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| agent_uuid       | string     |                           | The target agent's UUID                                  |
+| partition_uuid   | string     |                           | The target partition's UUID                              |
+
+### RQ_ApplySnapshot
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| agent_uuid       | string     |                           | The target agent's UUID                                  |
+| partition_uuid   | string     |                           | The target partition's UUID                              |
+| snapshot_uuid    | string     |                           | The snapshot's UUID                                      |
 
 ### RQ_SnapshotStream
 
@@ -74,7 +85,7 @@ a write queue to be written to the device.
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | stream_id        | int32      |                           | The stream's ID                                          |
 | operation        | string     | "create" or "apply"       | The snapshot operation type                              |
-| path             | string     |                           | The target device or partition path                      |
+| partition_uuid   | string     |                           | The target partition uuid                                |
 | block_size       | int32      |                           | The block size in bytes                                  |
 
 ### EV_SnapshotDataBlock
@@ -89,7 +100,7 @@ a write queue to be written to the device.
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | offset           | int64      |                           | The offset of the block that the first hash corresponds  |
-| hash             | repeated bytes |                       | A list of block hashes                                   |
+| hash             | repeated bytes |                       | A list of consecutive block hashes                       |
 
 ## Permissions list
 
