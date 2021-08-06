@@ -80,13 +80,56 @@ entanglement pair will be propagated to the destination in real-time.
 ### The VST Layer
 
 ### The OID Layer
-Every node in a ST Tree is uniquely identified by an OID. OIDs are sequences of `/`
-separated strings that describe how to reach the corresponding node from the root
-node. OIDs also have a string namespace identifier that identifies the plugin or
-module to which the OID belongs.
+Every node in a ST Tree is uniquely identified by an OID.
+
+#### Path
+The OID path is a sequence of `/` separated strings that describe how to reach
+the corresponding node from the root node.
+
+Elements of the path are called _components_ which may consist of any number of
+alphanumeric characters and underscores. If a component is empty, then the OID
+corresponds to all possible values of that component and is known as a _generic_
+OID. If an OID is not generic, then it's _concrete_.
+
+#### Namespace
+OIDs have a namespace string that identifies the module that provides the OID. This
+allows modules to define OIDs without the possibility of collisions. The namespace
+string must equal the name of the module that defines an OID.
+
+Namespace notation is to prefix the namespace string and a `:`, similar to the
+protocol section of a URI:
+
+```
+com.sandpolis.plugin.example:/profile//example
+```
+
+#### Temporal Selector
+In order to select historic values of an attribute, concrete OIDs may include a
+timestamp range selector or an index selector.
+
+##### Timestamp Selector
+To select all values within an arbitrary timestamp range, specify the inclusive
+start and end epoch timestamps separated by a `-`. If either timestamp is omitted,
+then the range is extended to the most extreme value possible.
+
+```
+com.sandpolis.plugin.example:/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[1628216870-1628216880]
+```
+
+##### Index Selector
+To select an arbitrary amount of values, specify inclusive start and end indicies
+separated by a `..`. If either index is omitted, then the range is extended to
+the most extreme value possible.
+
+```
+com.sandpolis.plugin.example:/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[2..7]
+```
 
 ## Message Format
 The Sandpolis network protocol is based on [protocol buffers](https://github.com/protocolbuffers/protobuf).
 
 ### Request/Response messages
+Request messages are named with a `RQ_` prefix.
+
 ### Event messages
+Event messages are named with a `EV_` prefix and are typically part of a stream.

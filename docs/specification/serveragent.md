@@ -13,6 +13,7 @@
 | RQ_InstallBootAgent   | `client`, `server` | `agent`            | Request a boot agent be installed on the system   |
 | RQ_UninstallBootAgent | `client`, `server` | `agent`            | Request a boot agent be uninstalled from the system |
 | RQ_LaunchBootAgent    | `client`, `server` | `agent`            | Request that the boot agent be started            |
+| RQ_ChangePowerState   | `client`, `server` | `agent`            | Request that the agent alter its power state      |
 
 ## Agent Authentication Messages
 ### RQ_AuthSession
@@ -73,3 +74,10 @@
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | target_uuid      | string     |                           | The UUID of the partition containing the boot agent      |
+
+### RQ_ChangePowerState
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| new_state        | string     |                           | The desired power state                                  |
+

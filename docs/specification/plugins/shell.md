@@ -28,9 +28,8 @@ The shell plugin integrates with various kinds of system shells.
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | shell_type       |
-| command          | string     |
+| command          | repeated string |                      | The commands to execute                                  |
 | timeout          | int32      |
-| scheduled        | int64      |
 | ignore_stdout    | bool       |
 | ignore_stderr    | bool       |
 

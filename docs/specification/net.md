@@ -2,11 +2,14 @@
 
 | Message              | Sources           | Destinations      | Description                                       |
 |----------------------|-------------------|-------------------|---------------------------------------------------|
-| RQ_Session           |
-| RS_Session           |
-| RQ_AddConnection     |
-| RQ_CoordinateConnection |
-| EV_NetworkChanged    |                                       | Indicates that some node in the network has changed in connection status |
+| RQ_Session           | `client`, `agent` | `server`          |
+| RS_Session           | `server`          | `client`,`agent`  |
+| RQ_AddConnection     | `client`          | `server`          |
+| RQ_CoordinateConnection | `server`       | `client`, `agent` |
+| EV_NetworkChanged    | `server`          | `client`, `agent` | Indicates that some node in the network has changed in connection status |
+| RQ_InstallPlugin     | `client`          | `server`          | Request that a new plugin be installed            |
+| RQ_STStream          | `client`, `agent` | `server`          | Request a new state tree sync stream              |
+| RQ_STSnapshot        | `client`, `agent` | `server`          | Request a state tree snapshot                     |
 
 ## Session
 Clients and agents maintain an ephemeral session which consists of a session identifier
@@ -16,7 +19,6 @@ and authentication state.
 Request that a new session be created. Any previous sessions associated with the
 instance are invalidated.
 
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | instance_uuid    | string     |                           |   |
@@ -26,7 +28,6 @@ instance are invalidated.
 ### RS_Session
 Respond to a session request with a successful result.
 
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | instance_cvid    | int32      |                           |   |
@@ -41,7 +42,6 @@ Respond to a session request with a successful result.
 Request that the receiving instance establish a new connection to the given host.
 The receiver should attempt the connection as soon as possible.
 
-#### Message Format
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | host             | string     | An IP address             | The connection host  |
@@ -57,3 +57,20 @@ The receiver should attempt the connection as soon as possible.
 | removed_node     |            |                           |   |
 | added_connection |            |                           |   |
 | removed_connection |          |                           |   |
+
+## State Tree
+
+### RQ_STSnapshot
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| oid              | string     |
+| whitelist        | repeated string |
+
+### RQ_STStream
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| stream_id        | int32      |
+| oid              | string     |                           |
+| whitelist        | repeated string |                      |
+| direction        | string     | "upstream", "downstream", or "bidirectional" |
