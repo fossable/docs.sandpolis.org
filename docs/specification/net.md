@@ -9,7 +9,7 @@
 | EV_NetworkChanged    | `server`          | `client`, `agent` | Indicates that some node in the network has changed in connection status |
 | RQ_InstallPlugin     | `client`          | `server`          | Request that a new plugin be installed            |
 | RQ_STStream          | `client`, `agent` | `server`          | Request a new state tree sync stream              |
-| RQ_STSnapshot        | `client`, `agent` | `server`          | Request a state tree snapshot                     |
+| EV_STStreamData      | `server`          | 
 
 ## Session
 Clients and agents maintain an ephemeral session which consists of a session identifier
@@ -59,12 +59,6 @@ The receiver should attempt the connection as soon as possible.
 | removed_connection |          |                           |   |
 
 ## State Tree
-
-### RQ_STSnapshot
-| Field            | Type       | Requirements              | Description                                              |
-|------------------|------------|---------------------------|----------------------------------------------------------|
-| oid              | string     |
-| whitelist        | repeated string |
 
 ### RQ_STStream
 

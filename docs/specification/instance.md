@@ -113,7 +113,7 @@ start and end epoch timestamps separated by a `-`. If either timestamp is omitte
 then the range is extended to the most extreme value possible.
 
 ```
-com.sandpolis.plugin.example:/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[1628216870-1628216880]
+/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[1628216870-1628216880]
 ```
 
 ##### Index Selector
@@ -122,7 +122,7 @@ separated by a `..`. If either index is omitted, then the range is extended to
 the most extreme value possible.
 
 ```
-com.sandpolis.plugin.example:/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[2..7]
+/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[2..7]
 ```
 
 ## Message Format
