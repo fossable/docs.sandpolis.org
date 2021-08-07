@@ -13,12 +13,59 @@ protocols. Since subagents must accept incoming connections, the gateway instanc
 usually must reside on the same network segment.
 
 #### SSH
+The SSH communicator establishes SSH sessions with remote devices.
+
 | Property   | Description |
 |------------|-------------|
 | `ssh.username` | The SSH username |
 
-#### HTTP
+#### IPMI
+The IPMI communicator runs IPMI commands on remote devices.
+
 #### SNMP
+The SNMP communicator reads and writes standard MIBs on remote devices.
+
 | Property   | Description |
 |------------|-------------|
 | `snmp.version` | The SNMP version |
+
+## Messages
+
+| Message              | Sources           | Destinations      | Description                                       |
+|----------------------|-------------------|-------------------|---------------------------------------------------|
+| RQ_FindSubagents     | `client`, `server` | `agent`          | Request an agent to scan its local network for potential subagent devices |
+| RS_FindSubagents     | `agent`           | `client`, `server` | Response containing potential subagents          |
+| RQ_RegisterSubagent  | `client`          | `server`          |
+| RQ_ConfigureSubagent | `server`          | `agent`           |
+| RQ_IpmiCommand       |
+| RQ_SnmpCommand       |
+| RQ_SshCommand        |
+
+### RQ_RegisterSubagent
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| gateway_uuid     | `string`   |                           | The UUID of the subagent's gateway instance              |
+| ip_address       | `string`   |
+
+### RQ_FindSubagents
+Scan the local network (if it's smaller than a /16) for devices that may be candidate subagents.
+
+- For the `ssh` communicator, a TCP connection is attempted on port 22
+- For the `snmp` communicator, probes are sent via UDP port 161
+- FOr the `ipmi` communicator, probes are sent via UDP port 623
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| gateway_uuid     | `string`   |                           | The UUID of a gateway instance                           |
+| communicators    | `repeated string` | `ssh`, `snmp`, `ipmi` | The communicator types to search                         |
+
+### RS_FindSubagents
+
+| Field                    | Type       | Requirements              | Description                                              |
+|--------------------------|------------|---------------------------|----------------------------------------------------------|
+| ssh_devices::ip_address  | `string`   | IPv4 or IPv6 address      | Device IP address                                        |
+| ssh_devices::mac_address | `string`   | MAC address               | Device MAC address                                       |
+| ssh_devices::fingerprint | `string`   |                           | Device SSH fingerprint
+| snmp_devices::ip_address | `string`   | IPv4 or IPv6 address      | Device IP address                                        |
+| ipmi_devices::ip_address | `string`   | IPv4 or IPv6 address      | Device IP address                                        |
