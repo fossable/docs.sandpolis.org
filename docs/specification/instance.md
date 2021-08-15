@@ -109,20 +109,26 @@ timestamp range selector or an index selector.
 
 ##### Timestamp Selector
 To select all values within an arbitrary timestamp range, specify the inclusive
-start and end epoch timestamps separated by a `-`. If either timestamp is omitted,
-then the range is extended to the most extreme value possible.
+start and end epoch timestamps separated by a `..` in parenthesis. If either timestamp
+is omitted, then the range is extended to the most extreme value possible.
 
 ```
-/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[1628216870-1628216880]
+/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example(1628216870..1628216880)
 ```
 
 ##### Index Selector
 To select an arbitrary amount of values, specify inclusive start and end indicies
-separated by a `..`. If either index is omitted, then the range is extended to
-the most extreme value possible.
+separated by a `..` in square brackets. If either index is omitted, then the range
+is extended to the most extreme value possible. Index 0 is the oldest value.
 
 ```
 /profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[2..7]
+```
+
+To select one value, omit the range specifier entirely:
+
+```
+/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[1]
 ```
 
 ## Message Format
