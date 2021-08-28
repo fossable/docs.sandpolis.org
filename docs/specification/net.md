@@ -10,6 +10,7 @@
 | RQ_InstallPlugin     | `client`          | `server`          | Request that a new plugin be installed            |
 | RQ_STStream          | `client`, `agent` | `server`          | Request a new state tree sync stream              |
 | EV_STStreamData      | `server`          | 
+| RQ_CloseStream       |                   |                   | Request that a stream be closed                   |
 
 ## Session
 Clients and agents maintain an ephemeral session which consists of a session identifier
@@ -68,3 +69,11 @@ The receiver should attempt the connection as soon as possible.
 | oid              | string     |                           |
 | whitelist        | repeated string |                      |
 | direction        | string     | "upstream", "downstream", or "bidirectional" |
+
+### EV_STStreamData
+
+### RQ_CloseStream
+
+| Field            | Type       | Requirements              | Description                                              |
+|------------------|------------|---------------------------|----------------------------------------------------------|
+| stream_id        | int32      |                           | The ID of the stream to close                            |

@@ -87,9 +87,9 @@ The OID path is a sequence of `/` separated strings that describe how to reach
 the corresponding node from the root node.
 
 Elements of the path are called _components_ which may consist of any number of
-alphanumeric characters and underscores. If a component is empty, then the OID
-corresponds to all possible values of that component and is known as a _generic_
-OID. If an OID is not generic, then it's _concrete_.
+alphanumeric characters and underscores. If a component equals the wildcard character
+(`*`), then the OID corresponds to all possible values of that component and is
+known as a _generic_ OID. If an OID is not generic, then it's _concrete_.
 
 #### Namespace
 OIDs have a namespace string that identifies the module that provides the OID. This
@@ -100,7 +100,7 @@ Namespace notation is to prefix the namespace string and a `:`, similar to the
 protocol section of a URI:
 
 ```
-com.sandpolis.plugin.example:/profile//example
+com.sandpolis.plugin.example:/profile/*/example
 ```
 
 #### Temporal Selector

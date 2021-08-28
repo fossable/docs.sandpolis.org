@@ -17,9 +17,12 @@ nav:
       - Client/Server: specification/clientserver.md
       - Server/Agent: specification/serveragent.md
     - Plugins:
+      - Desktop Plugin: specification/plugins/desktop.md
       - Device Plugin: specification/plugins/device.md
       - Filesystem Plugin: specification/plugins/filesystem.md
+      - Shell Plugin: specification/plugins/shell.md
       - Snapshot Plugin: specification/plugins/snapshot.md
+      - Update Plugin: specification/plugins/update.md
   - Implementation Reference:
     - Client: application/client.md
     - Server: application/server.md

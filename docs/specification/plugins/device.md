@@ -2,8 +2,8 @@
 The device plugin extends management functionality out to agent-less devices.
 
 ## Subagents
-Subagents are devices that do not have a Sandpolis agent software installed, but are
-instead managed via a third-party protocol such as SSH, HTTP, or SNMP from an instance
+Subagents are devices that do not have Sandpolis agent software installed, but are
+instead managed via a third-party protocol such as SSH, IPMI, or SNMP from an instance
 called the _gateway_. The gateway instance for a subagent may be an independent
 agent or a server.
 
@@ -53,7 +53,7 @@ Scan the local network (if it's smaller than a /16) for devices that may be cand
 
 - For the `ssh` communicator, a TCP connection is attempted on port 22
 - For the `snmp` communicator, probes are sent via UDP port 161
-- FOr the `ipmi` communicator, probes are sent via UDP port 623
+- For the `ipmi` communicator, probes are sent via UDP port 623
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
