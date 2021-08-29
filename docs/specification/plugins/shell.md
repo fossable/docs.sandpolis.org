@@ -1,6 +1,17 @@
 # Shell Plugin
 The shell plugin integrates with various kinds of system shells.
 
+## Shell Capability
+
+| Label | Shell Name |
+|-------|------------|
+| bash (zsh, ash, dash)  | 
+| fish  |
+| powershell |
+| cmd.exe    |
+| ksh        |
+| csh (tcsh) |
+
 ## Messages
 
 | Message              | Sources           | Destinations      | Description                                       |
@@ -22,6 +33,8 @@ The shell plugin integrates with various kinds of system shells.
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
+| shell::path      | string     | Filesystem path           | The location of the shell executable                     |
+| shell::capability | repeated string |                     | A list of shell capabilities                             |
 
 ### RQ_Execute
 
@@ -50,14 +63,15 @@ The shell plugin integrates with various kinds of system shells.
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
-| stdout           | bytes      |
-| stderr           | bytes      |
+| stdout           | bytes      | 0 - 65535 bytes           | The process standard-output                              |
+| stderr           | bytes      | 0 - 65535 bytes           | The process standard-error                               |
 
 ### RQ_ShellStream
 
 | Field            | Type       | Requirements              | Description                                              |
 |------------------|------------|---------------------------|----------------------------------------------------------|
 | stream_id        | int32      |
+| capability       | string     |
 | environment      | map        |
 | rows             | int32      |
 | cols             | int32      |
