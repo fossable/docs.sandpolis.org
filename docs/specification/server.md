@@ -121,39 +121,23 @@ A `Generator` is a routine which produces some installation artifact according
 to the parameters set out in an authentication group. The installation artifact
 can then be used to install an agent on a remote system.
 
-- Standard agent (com.sandpolis.agent.vanilla)
-- Native agent (com.sandpolis.agent.micro)
-- Minimal agent (com.sandpolis.agent.nano)
+### Deployers
 
-### Distagents
-
-On execution, distagents set up the agent base directory according to its
+On execution, deployers set up the agent base directory according to its
 configuration and executes the agent. If the target directory already contains
 an installation, the old installation is entirely overwritten.
 
-#### Distagent Configuration
-
-Distagents have an embedded configuration file called `distagent.properties`
-that describes how the installation process should proceed.
-
-| Property                    | Description                                                            |
-| --------------------------- | ---------------------------------------------------------------------- |
-| `s7s.distagent.target_type` | The agent type (vanilla, micro, or nano)                               |
-| `s7s.distagent.target_path` | The filesystem path                                                    |
-| `s7s.distagent.auth.scheme` | The name of the authentication scheme to use (password or certificate) |
-| `s7s.distagent.recover`     | Whether the installation should attempt to continue if errors occur    |
-
 ### Packager
 
-A packager is responsible for creating a distagent binary according to the
+A packager is responsible for creating a deployer binary according to the
 parameters set out in an authentication group.
 
-### Deployer
+### Distributor
 
-A deployer is responsible for deploying generated distagents to remote systems
-automatically.
+A distributor is responsible for transferring and executing generated deployer
+artifacts to remote systems.
 
-#### SSH Deployer
+#### SSH Distributor
 
 The SSH deployer first determines the remote system type and invokes an
 appropriate packager to generate an installer. The installer is then transferred

@@ -1,9 +1,10 @@
-# Distagent
+# Deployer
 
-Distagent instances are responsible for installing and updating agent instances.
+Deployer instances are responsible for installing, updating, or removing agent
+and probe instances.
 
-If an agent was originally installed by a package manager, it cannot be updated
-by a distagent.
+If an existing agent or probe was originally installed by a package manager, it
+cannot be updated or removed by a deployer.
 
 ## Instance Configuration
 
@@ -20,9 +21,7 @@ by a distagent.
   kilo         : {
     modules : [
       {
-        gpr_module  : String.description("The GPR module"),
-        gpr_package : String.description("The GPR package"),
-        maven_group : String.description("The artifact's maven group identifier"),
+        group       : String.description("The artifact's maven group identifier"),
         artifact    : String.description("The artifact's identifier"),
         filename    : String.description("The artifact's filename"),
         version     : String.description("The artifact's version string"),
@@ -33,17 +32,8 @@ by a distagent.
 }
 ```
 
-## Failure Callbacks
+## Callbacks Connections
 
-If configured, the distagent will establish an unencrypted "callback" connection
-to a server and transfer a payload in the event that the installation fails. The
-callback payload is obfuscated and contains details on the error.
-
-### Callback Payload
-
-```js
-{
-  timestamp : String.description("The installation timestamp"),
-  error     : String.description("The error details")
-}
-```
+If the install/update operation fails, and callbacks are configured, the
+deployer will establish an encrypted "callback" connection with a server and
+transfer details on the error.

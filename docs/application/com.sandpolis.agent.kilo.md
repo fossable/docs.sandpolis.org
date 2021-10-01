@@ -30,15 +30,15 @@ that upgrades must only occur through the package manager.
 
 ##### Apk (Alpine)
 
-### Distagent Installation
+### Deployer Installation
 
-This option requires no explicit configuration, but the _distagent_ executable
+This option requires no explicit configuration, but the _deployer_ executable
 must be transferred to the host and invoked explicitly.
 
 #### Filesystem Layout
 
-Distagents install everything under a single _base directory_ and create
-symbolic links in certain locations outside of the base directory.
+Deployers install everything under a single _base directory_ and create symbolic
+links in certain locations outside of the base directory.
 
 | Platform | Default base directory path |
 | -------- | --------------------------- |

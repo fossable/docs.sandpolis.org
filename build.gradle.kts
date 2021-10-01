@@ -10,7 +10,6 @@ spotless {
 
 		prettier().config(mapOf("proseWrap" to "always"))
 	}
-
 	format("yaml") {
 		target("**/*.yml", "**/*.yaml")
 		targetExclude("**/build/**")

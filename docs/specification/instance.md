@@ -4,15 +4,16 @@ The following sections apply to all Sandpolis instances.
 
 ## Instance Types
 
-Every instance belongs to one of four mutually exclusive _instance types_. There
+Every instance belongs to one of five mutually exclusive _instance types_. There
 is often more than one implementation in each category.
 
-| Instance Type | Description                                                                      |
-| ------------- | -------------------------------------------------------------------------------- |
-| `server`      | A headless application that coordinates communication between clients and agents |
-| `agent`       | A headless application that runs continuously on hosts in the Sandpolis network  |
-| `client`      | A UI application used for managing agents and servers                            |
-| `distagent`   | A headless application that installs or updates an agent                         |
+| Instance Type | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `server`      | A headless application that coordinates interactions among instances in the network |
+| `agent`       | A headless application that runs continuously on hosts in the Sandpolis network     |
+| `probe`       | A headless application that provides strictly read-only data to servers             |
+| `client`      | A UI application used for managing agents and probes                                |
+| `deployer`    | A headless application that installs or updates agents and probes                   |
 
 ### Instance Flavors (subtypes)
 
@@ -20,25 +21,42 @@ Each instance type may have multiple implementations (or flavors) to support a
 variety of use cases. Flavors are identified by a codename and also have a
 user-friendly "official" name.
 
-| Type        | Flavor codename | Implementation languages | Official name            |
-| ----------- | --------------- | ------------------------ | ------------------------ |
-| `server`    | `vanilla`       | Java                     | Server                   |
-| `client`    | `lifegem`       | Java, Kotlin             | Desktop Client           |
-| `client`    | `ascetic`       | Java                     | Terminal Client          |
-| `client`    | `lockstone`     | Swift                    | iOS Client               |
-| `client`    | `brightstone`   | JavaScript               | Web Client               |
-| `agent`     | `kilo`          | Java                     | Agent                    |
-| `agent`     | `micro`         | Rust                     | Native Agent             |
-| `agent`     | `nano`          | C++                      | Minimal Agent            |
-| `agent`     | `boot`          | Rust                     | Boot Agent               |
-| `distagent` | `rust`          | Rust                     | Agent distributor (Rust) |
-| `distagent` | `java`          | Java                     | Agent distributor (Java) |
+| Type       | Flavor codename | Implementation languages | Official name         |
+| ---------- | --------------- | ------------------------ | --------------------- |
+| `server`   | `vanilla`       | Java                     | Server                |
+| `client`   | `lifegem`       | Java, Kotlin             | Desktop Client        |
+| `client`   | `ascetic`       | Java                     | Terminal Client       |
+| `client`   | `lockstone`     | Swift                    | iOS Client            |
+| `client`   | `brightstone`   | JavaScript               | Web Client            |
+| `agent`    | `kilo`          | Java                     | Agent                 |
+| `agent`    | `micro`         | Rust                     | Native Agent          |
+| `agent`    | `boot`          | Rust                     | Boot Agent            |
+| `probe`    | `nano`          | C++                      | Probe                 |
+| `deployer` | `rust`          | Rust                     | Agent deployer (Rust) |
+| `deployer` | `java`          | Java                     | Agent deployer (Java) |
 
 ## Instance Configuration
 
 | Property                | Default | Description                                    |
 | ----------------------- | ------- | ---------------------------------------------- |
 | `s7s.runtime.residency` |         | Whether the instance is running in a container |
+
+## Build Metadata
+
+```js
+{
+  build_platform   : String.description("The build platform"),
+  build_timestamp  : Number.description("The build timestamp"),
+  instance_version : String.description("The instance's version"),
+  gradle_version   : String.description("The Gradle version"),
+  java_version     : String.description("The Java version"),
+  kotlin_version   : String.description("The kotlin version is applicable"),
+  rust_version     : String.description("The rust version if applicable"),
+  dependencies     : [
+    String.description("The artifact coordinates in G:A:V format")
+  ]
+}
+```
 
 ## Data Model
 

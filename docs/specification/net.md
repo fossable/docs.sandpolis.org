@@ -46,6 +46,15 @@ request the same resource at the same time.
 Clients and agents maintain an ephemeral session which consists of a session
 identifier and authentication state.
 
+Session identifiers are 4-byte unsigned integers that have the instance type and
+instance flavor encoded in them.
+
+```
+ 0         1         2           3
+ 012345678901234567890123 45678 901
+[        Base CVID       | FID |IID]
+```
+
 ### RQ_Session
 
 Request that a new session be created. Any previous sessions associated with the
@@ -61,11 +70,11 @@ instance are invalidated.
 
 Respond to a session request with a successful result.
 
-| Field         | Type  | Requirements | Description |
-| ------------- | ----- | ------------ | ----------- |
-| instance_cvid | int32 |              |             |
-| server_cvid   | int32 |              |             |
-| server_uuid   | int32 |              |             |
+| Field        | Type  | Requirements | Description |
+| ------------ | ----- | ------------ | ----------- |
+| instance_sid | int32 |              |             |
+| server_sid   | int32 |              |             |
+| server_uuid  | int32 |              |             |
 
 ### RQ_AddConnection
 
