@@ -29,7 +29,6 @@
 | Field | Type | Requirements | Description |
 | ----- | ---- | ------------ | ----------- |
 
-
 ## General Messages
 
 ### RQ_AgentMetadata
@@ -50,12 +49,10 @@
 | Field | Type | Requirements | Description |
 | ----- | ---- | ------------ | ----------- |
 
-
 ### RS_FindBootAgents
 
 | Field | Type | Requirements | Description |
 | ----- | ---- | ------------ | ----------- |
-
 
 ### RQ_InstallBootAgent
 
@@ -69,17 +66,39 @@
 | netmask        | string |              | The netmask corresponding to the static IP                      |
 | gateway_ip     | string |              | The gateway IP                                                  |
 
+### RS_InstallBootAgent
+
+| Field                            | Description |
+| -------------------------------- | ----------- |
+| INSTALL_BOOT_AGENT_OK            |
+| INSTALL_BOOT_AGENT_ACCESS_DENIED |
+
 ### RQ_UninstallBootAgent
 
 | Field       | Type   | Requirements | Description                                         |
 | ----------- | ------ | ------------ | --------------------------------------------------- |
 | target_uuid | string |              | The UUID of the partition containing the boot agent |
 
+### RS_UninstallBootAgent
+
+| Field                              | Description |
+| ---------------------------------- | ----------- |
+| UNINSTALL_BOOT_AGENT_OK            |
+| UNINSTALL_BOOT_AGENT_ACCESS_DENIED |
+
 ### RQ_LaunchBootAgent
 
 | Field       | Type   | Requirements | Description                                         |
 | ----------- | ------ | ------------ | --------------------------------------------------- |
 | target_uuid | string |              | The UUID of the partition containing the boot agent |
+
+### RS_LaunchBootAgent
+
+| Field                           | Description |
+| ------------------------------- | ----------- |
+| LAUNCH_BOOT_AGENT_OK            |
+| LAUNCH_BOOT_AGENT_ACCESS_DENIED |
+| LAUNCH_BOOT_AGENT_FAILED        |
 
 ### RQ_ChangePowerState
 
