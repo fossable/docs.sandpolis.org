@@ -1,15 +1,30 @@
 # Probe Instance
 
 Probes are similar to agents, but are only allowed to egress data to a server.
-They don't receive any kind of message, so their configuration is immutable.
+They cannot receive messages, so their configuration is immutable unless the
+system also runs an agent capable of managing probe instances.
+
+Probe instances are designed to be extremely lightweight and run on almost any
+hardware.
 
 ## Probe Configuration
 
-| Property                             | Description                                                      |
-| ------------------------------------ | ---------------------------------------------------------------- |
-| `s7s.probe.network.server_address`   | A CSV of IP addresses or domain names including port information |
-| `s7s.probe.network.timeout`          | The server connection timeout in milliseconds                    |
-| `s7s.probe.network.polling_interval` | The connection poll interval in milliseconds                     |
+```py
+{
+	"network" : {
+		"server_address" : [
+			String() # An IP address or DNS name with port info
+		],
+		"connection": {
+			"timeout" : Number(), # The connection timeout in milliseconds
+			"interval" : Number() # The connection poll interval in milliseconds
+		},
+		"collectors": {
+			"/memory/total_used"
+		}
+	}
+}
+```
 
 ## Connection Mode
 
@@ -26,4 +41,8 @@ In this case, the probe may choose another server or wait and try again later.
 ## Connection Security
 
 Unlike agents, probes do not use TLS. Rather, outgoing messages are encrypted
-with AES using a key derived from a master key embedded in the configuration.
+with AES256 using a sesion key derived from a master key embedded in the
+configuration.
+
+No two connections will use the same session key, so compromising it will only
+yield an attacker decrypted data for the remainder of the connection.
