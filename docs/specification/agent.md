@@ -4,14 +4,6 @@ At a general level, agents are responsible for carrying out tasks for remote
 users. They can connect over the network to any other type of instance. At
 minimum, agents must be associated with one server.
 
-## Build Metadata
-
-| Property              | Description                   |
-| --------------------- | ----------------------------- |
-| `s7s.build.version`   | The instance's version string |
-| `s7s.build.platform`  | The build platform's name     |
-| `s7s.build.timestamp` | UTC epoch timestamp           |
-
 ## Agent Configuration
 
 The agent's configuration is represented in standard Java properties format and
