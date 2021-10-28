@@ -37,23 +37,27 @@ user-friendly "official" name.
 
 ## Instance Configuration
 
-| Property                | Default | Description                                    |
-| ----------------------- | ------- | ---------------------------------------------- |
-| `s7s.runtime.residency` |         | Whether the instance is running in a container |
+```py
+{
+  "runtime" : {
+    "residency": Boolean(default=False), # Whether the instance is running in a container
+  }
+}
+```
 
 ## Build Metadata
 
-```js
+```py
 {
-  build_platform   : String.description("The build platform"),
-  build_timestamp  : Number.description("The build timestamp"),
-  instance_version : String.description("The instance's version"),
-  gradle_version   : String.description("The Gradle version"),
-  java_version     : String.description("The Java version"),
-  kotlin_version   : String.description("The kotlin version is applicable"),
-  rust_version     : String.description("The rust version if applicable"),
-  dependencies     : [
-    String.description("The artifact coordinates in G:A:V format")
+  "build_platform"   : String(), # The build platform
+  "build_timestamp"  : Number(), # The build timestamp
+  "instance_version" : String(), # The instance's version
+  "gradle_version"   : String(), # The Gradle version
+  "java_version"     : String(), # The Java version
+  "kotlin_version"   : String(), # The kotlin version is applicable
+  "rust_version"     : String(), # The rust version if applicable
+  "dependencies"     : [
+    String(), # The artifact coordinates in G:A:V format
   ]
 }
 ```

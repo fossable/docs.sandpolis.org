@@ -8,32 +8,25 @@ responsible for coordinating interactions among instances and persisting data.
 The Sandpolis server listens on TCP port **8768** by default, but can be
 configured to listen on a different port or multiple ports concurrently.
 
-## Geolocation Services
+## Instance Configuration
 
-Sandpolis is able to get its location information from several sources. To
-select a location service, the following configuration options are recognized:
-
-| Property                        | Default      | Description                                                                            |
-| ------------------------------- | ------------ | -------------------------------------------------------------------------------------- |
-| `server.geolocation.service`    | _ip-api.com_ | The name of the geolocation service to use. Valid values are found in the table below. |
-| `server.geolocation.key`        | _null_       | The service API key                                                                    |
-| `server.geolocation.expiration` | _240_        | The cache timeout in hours                                                             |
-
-The following public geolocation services are supported:
-
-| Service                                                                     | Identifier   |
-| --------------------------------------------------------------------------- | ------------ |
-| <a href="https://ip-api.com" target="_blank">ip-api.com</a>                 | `ip-api.com` |
-| <a href="https://tools.keycdn.com/geo" target="_blank">tools.keycdn.com</a> | `keycdn.com` |
-
-## Database
-
-| Property                       | Default     | Description                     |
-| ------------------------------ | ----------- | ------------------------------- |
-| `s7s.storage.provider`         | _ephemeral_ | The database storage provider   |
-| `s7s.storage.mongodb.host`     |             | The address of the mongodb host |
-| `s7s.storage.mongodb.username` |             | The mongodb user's username     |
-| `s7s.storage.mongodb.password` |             | The mongodb user's password     |
+```py
+{
+  "storage" : {
+    "provider" : String(default="ephemeral"), # The database storage provider
+    "mongodb" : {
+      "host"     : String(), # The address of the mongodb host
+      "username" : String(), # The mongodb user's username
+      "password" : String(), # The mongodb user's password
+    }
+  },
+  "geolocation" : {
+    "service"    : String(values=["ip-api.com", "keycdn.com"], default="ip-api.com"), # The name of the geolocation service to use
+    "key"        : String(), # The service API key
+    "expiration" : Number(), # The cache timeout in hours
+  }
+}
+```
 
 ## First Start
 

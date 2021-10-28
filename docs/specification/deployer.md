@@ -8,24 +8,24 @@ cannot be updated or removed by a deployer.
 
 ## Instance Configuration
 
-```js
+```py
 {
-  agent_type   : String.description("The type of agent to install"),
-  callback     : {
-    address    : String.description("The callback address"),
-    identifier : String.description("The callback identifier")
+  "agent_type"   : String(), # The type of agent to install
+  "callback"     : {
+    "address"    : String(), # The callback address
+    "identifier" : String(), # The callback identifier
   },
-  install_dir  : String.description("The installation's base directory"),
-  autorecover  : String.description("Whether the agent can disregard elements of the config in case of failure"),
-  autostart    : Boolean.description("Whether the agent should be started on boot"),
-  kilo         : {
-    modules : [
+  "install_dir"  : String(), # The installation's base directory
+  "autorecover"  : String(), # Whether the agent can disregard elements of the config in case of failure
+  "autostart"    : Boolean(), # Whether the agent should be started on boot
+  "kilo"         : {
+    "modules" : [
       {
-        group       : String.description("The artifact's maven group identifier"),
-        artifact    : String.description("The artifact's identifier"),
-        filename    : String.description("The artifact's filename"),
-        version     : String.description("The artifact's version string"),
-        hash        : String.description("The artifact's SHA256 hash")
+        "group"       : String(), # The artifact's maven group identifier
+        "artifact"    : String(), # The artifact's identifier
+        "filename"    : String(), # The artifact's filename
+        "version"     : String(), # The artifact's version string
+        "hash"        : String(), # The artifact's SHA256 hash
       }
     ]
   }

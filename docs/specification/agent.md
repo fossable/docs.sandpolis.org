@@ -4,18 +4,18 @@ At a general level, agents are responsible for carrying out tasks for remote
 users. They can connect over the network to any other type of instance. At
 minimum, agents must be associated with one server.
 
-## Agent Configuration
+## Instance Configuration
 
-The agent's configuration is represented in standard Java properties format and
-is named `agent.properties`. The configuration may be embedded in the agent's
-executable or configured by the user at runtime.
-
-| Property                             | Description                                                                       |
-| ------------------------------------ | --------------------------------------------------------------------------------- |
-| `s7s.agent.network.server_address`   | A CSV of IP addresses or domain names including port information                  |
-| `s7s.agent.network.timeout`          | The server connection timeout in milliseconds                                     |
-| `s7s.agent.network.strict_certs`     | The agent will refuse to connect to a server that presents an invalid certificate |
-| `s7s.agent.network.polling_interval` | The connection poll interval in milliseconds                                      |
+```py
+{
+  "network" : {
+    "servers" : String(),
+    "timeout" : Number(), # The server connection timeout in milliseconds
+    "strict_certs" : Boolean(), # The agent will refuse to connect to a server that presents an invalid certificate
+    "polling_interval" : Number(), # The connection poll interval in milliseconds
+  }
+}
+```
 
 ## Connection Modes
 

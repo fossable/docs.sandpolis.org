@@ -11,18 +11,18 @@ hardware.
 
 ```py
 {
-	"network" : {
-		"server_address" : [
-			String() # An IP address or DNS name with port info
-		],
-		"connection": {
-			"timeout" : Number(), # The connection timeout in milliseconds
-			"interval" : Number() # The connection poll interval in milliseconds
-		},
-		"collectors": {
-			"/memory/total_used"
-		}
-	}
+  "network" : {
+    "server_address" : [
+      String() # An IP address or DNS name with port info
+    ],
+    "connection": {
+      "timeout" : Number(), # The connection timeout in milliseconds
+      "interval" : Number() # The connection poll interval in milliseconds
+    }
+  },
+  "collectors": {
+    "/memory/total_used"
+  }
 }
 ```
 
