@@ -15,6 +15,11 @@ A subagent communicates to its gateway instance over one of the following
 well-known protocols. Since subagents must accept incoming connections, the
 gateway instance usually must reside on the same network segment.
 
+#### WOL
+
+The WOL communicator is able to send Wake-on-LAN magic packets to listening
+devices.
+
 #### SSH
 
 The SSH communicator establishes SSH sessions with remote devices.
@@ -58,22 +63,17 @@ The SNMP communicator reads and writes standard MIBs on remote devices.
 | RQ_IpmiCommand                        |
 | RQ_SnmpWalk                           |
 | RQ_SshCommand                         |
-
-### RQ_RegisterSubagent
-
-| Field        | Type     | Requirements | Description                                 |
-| ------------ | -------- | ------------ | ------------------------------------------- |
-| gateway_uuid | `string` |              | The UUID of the subagent's gateway instance |
-| ip_address   | `string` |
+| RQ_SendWolPacket                      |
+| RS_SendWolPacket                      |
 
 ### RQ_FindSubagents
 
 Scan the local network (if it's smaller than a /16) for devices that may be
 candidate subagents.
 
-- For the `ssh` communicator, a TCP connection is attempted on port 22
-- For the `snmp` communicator, probes are sent via UDP port 161
-- For the `ipmi` communicator, probes are sent via UDP port 623
+-   For the `ssh` communicator, a TCP connection is attempted on port 22
+-   For the `snmp` communicator, probes are sent via UDP port 161
+-   For the `ipmi` communicator, probes are sent via UDP port 623
 
 | Field         | Type              | Requirements          | Description                      |
 | ------------- | ----------------- | --------------------- | -------------------------------- |

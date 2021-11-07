@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "FileReader": "^0.10.2",
+    "proto-parser": "^0.0.8"
+  }
+}
