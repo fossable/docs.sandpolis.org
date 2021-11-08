@@ -8,7 +8,7 @@ var fs = require("fs");
 fs.readFile(process.argv[2], "utf8", function (err, data) {
 	if (err) throw err;
 
-	var root = proto.parse(data);
+	var root = proto.parse(data, { resolve: false });
 	var package = root["package"];
 	root = root["root"];
 

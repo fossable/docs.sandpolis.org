@@ -6,5 +6,5 @@ for proto in $(find ../sandpolis -name "messages.proto"); do
 
 	# Determine module name
 	module=$(dirname ${proto} | sed 's/.proto$//' | tr '/' '.' | sed 's/^.*src.main.proto.//')
-	./ParseProto.js ${proto} >docs/specification/msg/${module}.md
+	./ParseProto.js ${proto} >docs/specification/messages/${module}.md
 done
