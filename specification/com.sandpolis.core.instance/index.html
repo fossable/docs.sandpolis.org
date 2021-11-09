@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Instance - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Instance";
+    var mkdocs_page_input_path = "specification/com.sandpolis.core.instance.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Instance</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="instance">Instance</h1>
+<p>The following sections apply to all Sandpolis instances.</p>
+<h2 id="instance-types">Instance Types</h2>
+<p>Every instance belongs to one of five mutually exclusive <em>instance types</em>. There
+is often more than one implementation in each category.</p>
+<table>
+<thead>
+<tr>
+<th>Instance Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>server</code></td>
+<td>A headless application that coordinates interactions among instances in the network</td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td>A headless application that runs continuously on hosts in the Sandpolis network</td>
+</tr>
+<tr>
+<td><code>probe</code></td>
+<td>A headless application that provides strictly read-only data to servers</td>
+</tr>
+<tr>
+<td><code>client</code></td>
+<td>A UI application used for managing agents and probes</td>
+</tr>
+<tr>
+<td><code>deployer</code></td>
+<td>A headless application that installs or updates agents and probes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="instance-flavors-subtypes">Instance Flavors (subtypes)</h3>
+<p>Each instance type may have multiple implementations (or flavors) to support a
+variety of use cases. Flavors are identified by a codename and also have a
+user-friendly "official" name.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Flavor codename</th>
+<th>Implementation languages</th>
+<th>Official name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>server</code></td>
+<td><code>vanilla</code></td>
+<td>Java</td>
+<td>Server</td>
+</tr>
+<tr>
+<td><code>client</code></td>
+<td><code>lifegem</code></td>
+<td>Java, Kotlin</td>
+<td>Desktop Client</td>
+</tr>
+<tr>
+<td><code>client</code></td>
+<td><code>ascetic</code></td>
+<td>Java</td>
+<td>Terminal Client</td>
+</tr>
+<tr>
+<td><code>client</code></td>
+<td><code>lockstone</code></td>
+<td>Swift</td>
+<td>iOS Client</td>
+</tr>
+<tr>
+<td><code>client</code></td>
+<td><code>brightstone</code></td>
+<td>JavaScript</td>
+<td>Web Client</td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td><code>kilo</code></td>
+<td>Java</td>
+<td>Agent</td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td><code>micro</code></td>
+<td>Rust</td>
+<td>Native Agent</td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td><code>boot</code></td>
+<td>Rust</td>
+<td>Boot Agent</td>
+</tr>
+<tr>
+<td><code>probe</code></td>
+<td><code>nano</code></td>
+<td>C++</td>
+<td>Probe</td>
+</tr>
+<tr>
+<td><code>deployer</code></td>
+<td><code>rust</code></td>
+<td>Rust</td>
+<td>Agent deployer (Rust)</td>
+</tr>
+<tr>
+<td><code>deployer</code></td>
+<td><code>java</code></td>
+<td>Java</td>
+<td>Agent deployer (Java)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="instance-configuration">Instance Configuration</h2>
+<pre><code class="language-py">{
+  &quot;runtime&quot; : {
+    &quot;residency&quot;: Boolean(default=False), # Whether the instance is running in a container
+  }
+}
+</code></pre>
+<h2 id="build-metadata">Build Metadata</h2>
+<pre><code class="language-py">{
+  &quot;build_platform&quot;   : String(), # The build platform
+  &quot;build_timestamp&quot;  : Number(), # The build timestamp
+  &quot;instance_version&quot; : String(), # The instance's version
+  &quot;gradle_version&quot;   : String(), # The Gradle version
+  &quot;java_version&quot;     : String(), # The Java version
+  &quot;kotlin_version&quot;   : String(), # The kotlin version is applicable
+  &quot;rust_version&quot;     : String(), # The rust version if applicable
+  &quot;dependencies&quot;     : [
+    String(), # The artifact coordinates in G:A:V format
+  ]
+}
+</code></pre>
+<h2 id="data-model">Data Model</h2>
+<p>There are three layers in the Sandpolis data model. Of which, client
+implementations are required to support at least two (ST and OID layers).</p>
+<h3 id="the-st-layer">The ST Layer</h3>
+<p>The State Tree layer is the lowest layer and is concerned with storage and
+persistence. Every instance maintains a global tree called the "ST Tree". The
+tree is seldomly manipulated directly. Instead, higher layers make changes to
+the ST Tree on behalf of consumers.</p>
+<p>The ST tree is composed of two components: <code>Attribute</code>s and <code>Document</code>s.</p>
+<h4 id="attributes">Attributes</h4>
+<p>Attributes contain data of a specific type and meaning. All data in the ST tree
+is stored in attributes.</p>
+<h5 id="retention">Retention</h5>
+<p>The history of an attribute can optionally be recorded with <em>tracked
+attributes</em>.</p>
+<h5 id="attributechangedevent">AttributeChangedEvent</h5>
+<h4 id="documents">Documents</h4>
+<p>Documents are a set of attributes and sub-documents.</p>
+<h5 id="documentaddedevent">DocumentAddedEvent</h5>
+<p>Indicates that a document has been added to the tree. No futher events will be
+fired for all children of the added document as a direct result of the addition.</p>
+<h5 id="documentremovedevent">DocumentRemovedEvent</h5>
+<p>Indicates that a document has been removed from the tree.</p>
+<h4 id="entanglement">Entanglement</h4>
+<p>A concept that exists at the ST layer is <strong>entanglement</strong>: ST trees that reside
+on remote instances can synchronize their state. The relation can be
+bidirectional or unidirectional and last as long as necessary. All changes to
+the source of an entanglement pair will be propagated to the destination in
+real-time.</p>
+<h4 id="snapshots-and-merging">Snapshots and Merging</h4>
+<h3 id="the-vst-layer">The VST Layer</h3>
+<h3 id="the-oid-layer">The OID Layer</h3>
+<p>Every node in a ST Tree is uniquely identified by an OID.</p>
+<h4 id="path">Path</h4>
+<p>The OID path is a sequence of <code>/</code> separated strings that describe how to reach
+the corresponding node from the root node.</p>
+<p>Elements of the path are called <em>components</em> which may consist of any number of
+alphanumeric characters and underscores. If a component equals the wildcard
+character (<code>*</code>), then the OID corresponds to all possible values of that
+component and is known as a <em>generic</em> OID. If an OID is not generic, then it's
+<em>concrete</em>.</p>
+<h4 id="namespace">Namespace</h4>
+<p>OIDs have a namespace string that identifies the module that provides the OID.
+This allows modules to define OIDs without the possibility of collisions. The
+namespace string must equal the name of the module that defines an OID.</p>
+<p>Namespace notation is to prefix the namespace string and a <code>:</code>, similar to the
+protocol section of a URI:</p>
+<pre><code>com.sandpolis.plugin.example:/profile/*/example
+</code></pre>
+<h4 id="temporal-selector">Temporal Selector</h4>
+<p>In order to select historic values of an attribute, concrete OIDs may include a
+timestamp range selector or an index selector.</p>
+<h5 id="timestamp-selector">Timestamp Selector</h5>
+<p>To select all values within an arbitrary timestamp range, specify the inclusive
+start and end epoch timestamps separated by a <code>..</code> in parenthesis. If either
+timestamp is omitted, then the range is extended to the most extreme value
+possible.</p>
+<pre><code>/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example(1628216870..1628216880)
+</code></pre>
+<h5 id="index-selector">Index Selector</h5>
+<p>To select an arbitrary amount of values, specify inclusive start and end
+indicies separated by a <code>..</code> in square brackets. If either index is omitted,
+then the range is extended to the most extreme value possible. Index 0 is the
+oldest value.</p>
+<pre><code>/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[2..7]
+</code></pre>
+<p>To select one value, omit the range specifier entirely:</p>
+<pre><code>/profile/ba4412ea-1ec6-4e76-be78-3849d2196b52/example[1]
+</code></pre>
+<h2 id="message-format">Message Format</h2>
+<p>The Sandpolis network protocol is based on
+<a href="https://github.com/protocolbuffers/protobuf">protocol buffers</a>.</p>
+<h3 id="requestresponse-messages">Request/Response messages</h3>
+<p>Request messages are named with a <code>RQ_</code> prefix.</p>
+<h3 id="event-messages">Event messages</h3>
+<p>Event messages are named with a <code>EV_</code> prefix and are typically part of a stream.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

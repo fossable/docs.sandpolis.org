@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Server Instance - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Server Instance";
+    var mkdocs_page_input_path = "specification/com.sandpolis.core.server.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Server Instance</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="server-instance">Server Instance</h1>
+<p>Every Sandpolis network must include one server instance at minimum. Servers are
+responsible for coordinating interactions among instances and persisting data.</p>
+<h2 id="listening-port">Listening port</h2>
+<p>The Sandpolis server listens on TCP port <strong>8768</strong> by default, but can be
+configured to listen on a different port or multiple ports concurrently.</p>
+<h2 id="instance-configuration">Instance Configuration</h2>
+<pre><code class="language-py">{
+  &quot;storage&quot; : {
+    &quot;provider&quot; : String(default=&quot;ephemeral&quot;), # The database storage provider
+    &quot;mongodb&quot; : {
+      &quot;host&quot;     : String(), # The address of the mongodb host
+      &quot;username&quot; : String(), # The mongodb user's username
+      &quot;password&quot; : String(), # The mongodb user's password
+    }
+  },
+  &quot;geolocation&quot; : {
+    &quot;service&quot;    : String(values=[&quot;ip-api.com&quot;, &quot;keycdn.com&quot;], default=&quot;ip-api.com&quot;), # The name of the geolocation service to use
+    &quot;key&quot;        : String(), # The service API key
+    &quot;expiration&quot; : Number(), # The cache timeout in hours
+  }
+}
+</code></pre>
+<h2 id="first-start">First Start</h2>
+<p>If the server starts with ephemeral storage or an empty database, the server
+enters "first start" mode. This mode has the following implications:</p>
+<h3 id="default-admin-password">Default admin password</h3>
+<p>The admin password will be randomized and printed in the server log. All clients
+are required to force users to change the admin password and setup multi-factor
+authentication before proceeding after the first login.</p>
+<h2 id="connection-blocking">Connection Blocking</h2>
+<p>The server will refuse connections from IP addresses on a configurable blocklist
+or those that trigger the global rate-limiting policy.</p>
+<p>IP address on a configurable whitelist are exempt from rate-limiting.</p>
+<h2 id="permissions">Permissions</h2>
+<p>All user accounts are subject to a set of permissions controlling what server
+operations are authorized. The inital admin user has complete and irrevocable
+permissions. By default, additional user accounts are created without
+permissions and consequently are allowed to do almost nothing.</p>
+<h3 id="permissions-list">Permissions list</h3>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>server.generate</code></td>
+<td>Rights to use the generator</td>
+</tr>
+<tr>
+<td><code>server.users.list</code></td>
+<td>Right to view usernames and permissions of all other users</td>
+</tr>
+<tr>
+<td><code>server.users.create</code></td>
+<td>Right to create new users (of lesser or equal permissions)</td>
+</tr>
+<tr>
+<td><code>server.net.view</code></td>
+<td>Right to open the network control panel</td>
+</tr>
+<tr>
+<td><code>server.listener.create</code></td>
+<td>Right to create a new listener on the server</td>
+</tr>
+<tr>
+<td><code>server.listener.list</code></td>
+<td>Right to view all listeners on the server</td>
+</tr>
+<tr>
+<td><code>server.group.create</code></td>
+<td>Right to create a new authentication group on the server</td>
+</tr>
+<tr>
+<td><code>server.group.list</code></td>
+<td>Right to view all authentication groups on the server</td>
+</tr>
+<tr>
+<td><code>agent.system.power</code></td>
+<td>Right to shutdown, reboot, etc the agent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agent-groups">Agent Groups</h2>
+<p>Agent groups are sets of agents that share one or more authentication schemes.
+Every group has exactly one owner and zero or more (user) members.</p>
+<h3 id="password-authentication-scheme">Password Authentication Scheme</h3>
+<p>After establishing a connection, agents may present an unsalted SHA512 hash of a
+password entered by the user to the server. The server compares the password to
+each agent group until it finds a match. If a match is found, the agent is
+becomes authenticated to the matching agent group. Otherwise, the connection is
+closed if more than 5 attempts were made on that connection.</p>
+<p>Since a user must type the password manually, the server will attempt to
+configure the certificate authentication scheme for all subsequent connections.</p>
+<h3 id="token-authentication-scheme">Token Authentication Scheme</h3>
+<p>The agent may provide an 8 character alphanumeric time-based token periodically
+generated by the server from an agent group's secret key. Since a user must type
+the token in manually, the server will attempt to configure the certificate
+authentication scheme for all subsequent connections.</p>
+<h3 id="certificate-authentication-scheme">Certificate Authentication Scheme</h3>
+<p>The agent may provide an X509 "client" certificate signed by an agent group's
+secret key during the initial connection attempt. If the agent certificate was
+found to be valid, the connection is automatically authenticated without any
+additional message exchanges.</p>
+<h4 id="agent-certificate-expiration">Agent Certificate Expiration</h4>
+<p>The default lifetime for an agent certificate is six months. The following
+section implies an agent must connect to a server at least once every 1.5 months
+otherwise it loses its ability to authenticate.</p>
+<h4 id="agent-certificate-renewal">Agent Certificate Renewal</h4>
+<p>Once 75% of the lifetime of an agent certificate elapses, the server attempts to
+issue a new certificate and installs it on the agent.</p>
+<h2 id="agent-generators">Agent Generators</h2>
+<p>A <code>Generator</code> is a routine which produces some installation artifact according
+to the parameters set out in an authentication group. The installation artifact
+can then be used to install an agent on a remote system.</p>
+<h3 id="deployers">Deployers</h3>
+<p>On execution, deployers set up the agent base directory according to its
+configuration and executes the agent. If the target directory already contains
+an installation, the old installation is entirely overwritten.</p>
+<h3 id="packager">Packager</h3>
+<p>A packager is responsible for creating a deployer binary according to the
+parameters set out in an authentication group.</p>
+<h3 id="distributor">Distributor</h3>
+<p>A distributor is responsible for transferring and executing generated deployer
+artifacts to remote systems.</p>
+<h4 id="ssh-distributor">SSH Distributor</h4>
+<p>The SSH deployer first determines the remote system type and invokes an
+appropriate packager to generate an installer. The installer is then transferred
+to the remote host and executed.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Device Plugin - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Device Plugin";
+    var mkdocs_page_input_path = "specification/com.sandpolis.plugin.device.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Device Plugin</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="device-plugin">Device Plugin</h1>
+<p>The device plugin extends management functionality out to agent-less devices.</p>
+<h2 id="subagents">Subagents</h2>
+<p>Subagents are devices that do not have Sandpolis agent software installed, but
+are instead managed via a third-party protocol such as SSH, IPMI, or SNMP from
+an instance called the <em>gateway</em>. The gateway instance for a subagent may be an
+independent agent or a server.</p>
+<h3 id="communicators">Communicators</h3>
+<p>A subagent communicates to its gateway instance over one of the following
+well-known protocols. Since subagents must accept incoming connections, the
+gateway instance usually must reside on the same network segment.</p>
+<h4 id="wol">WOL</h4>
+<p>The WOL communicator is able to send Wake-on-LAN magic packets to listening
+devices.</p>
+<h4 id="ssh">SSH</h4>
+<p>The SSH communicator establishes SSH sessions with remote devices.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssh.username</code></td>
+<td>The SSH username</td>
+</tr>
+<tr>
+<td><code>ssh.password</code></td>
+<td>The SSH password</td>
+</tr>
+<tr>
+<td><code>ssh.private_key</code></td>
+<td>The SSH private key</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ipmi">IPMI</h4>
+<p>The IPMI communicator runs IPMI commands on remote devices.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ipmi.username</code></td>
+<td>The IPMI username</td>
+</tr>
+<tr>
+<td><code>ipmi.password</code></td>
+<td>The IPMI password</td>
+</tr>
+</tbody>
+</table>
+<h4 id="snmp">SNMP</h4>
+<p>The SNMP communicator reads and writes standard MIBs on remote devices.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>snmp.version</code></td>
+<td>The SNMP version</td>
+</tr>
+<tr>
+<td><code>snmp.community</code></td>
+<td>The SNMP community string if version &lt; 3</td>
+</tr>
+<tr>
+<td><code>snmp.privacy.type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>snmp.privacy.secret</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>snmp.authentication.type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>snmp.authentication.secret</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="messages">Messages</h2>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Sources</th>
+<th>Destinations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rq_findsubagents">RQ_FindSubagents</a></td>
+<td><code>client</code>, <code>server</code></td>
+<td><code>agent</code></td>
+</tr>
+<tr>
+<td><a href="#rs_findsubagents">RS_FindSubagents</a></td>
+<td><code>agent</code></td>
+<td><code>client</code>, <code>server</code></td>
+</tr>
+<tr>
+<td>RQ_RegisterSubagent</td>
+<td><code>client</code></td>
+<td><code>server</code></td>
+</tr>
+<tr>
+<td>RQ_ConfigureSubagent</td>
+<td><code>server</code></td>
+<td><code>agent</code></td>
+</tr>
+<tr>
+<td>RQ_IpmiCommand</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RQ_SnmpWalk</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RQ_SshCommand</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RQ_SendWolPacket</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RS_SendWolPacket</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_findsubagents">RQ_FindSubagents</h3>
+<p>Scan the local network (if it's smaller than a /16) for devices that may be
+candidate subagents.</p>
+<ul>
+<li>For the <code>ssh</code> communicator, a TCP connection is attempted on port 22</li>
+<li>For the <code>snmp</code> communicator, probes are sent via UDP port 161</li>
+<li>For the <code>ipmi</code> communicator, probes are sent via UDP port 623</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Requirements</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gateway_uuid</td>
+<td><code>string</code></td>
+<td></td>
+<td>The UUID of a gateway instance</td>
+</tr>
+<tr>
+<td>communicators</td>
+<td><code>repeated string</code></td>
+<td><code>ssh</code>, <code>snmp</code>, <code>ipmi</code></td>
+<td>The communicator types to search</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_findsubagents">RS_FindSubagents</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Requirements</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ssh_device::ip_address</td>
+<td><code>string</code></td>
+<td>IPv4 or IPv6 address</td>
+<td>Device IP address</td>
+</tr>
+<tr>
+<td>ssh_device::mac_address</td>
+<td><code>string</code></td>
+<td>MAC address</td>
+<td>Device MAC address</td>
+</tr>
+<tr>
+<td>ssh_device::fingerprint</td>
+<td><code>string</code></td>
+<td></td>
+<td>Device SSH fingerprint</td>
+</tr>
+<tr>
+<td>snmp_device::ip_address</td>
+<td><code>string</code></td>
+<td>IPv4 or IPv6 address</td>
+<td>Device IP address</td>
+</tr>
+<tr>
+<td>ipmi_device::ip_address</td>
+<td><code>string</code></td>
+<td>IPv4 or IPv6 address</td>
+<td>Device IP address</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_snmpwalk">RQ_SnmpWalk</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Requirements</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>oid</td>
+<td><code>string</code></td>
+<td>An OID string</td>
+<td>Request an SNMP walk operation be executed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_snmpwalk">RS_SnmpWalk</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Requirements</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data::oid</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data::type</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data::value</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

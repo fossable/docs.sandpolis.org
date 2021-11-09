@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Com.sandpolis.core.net - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Com.sandpolis.core.net";
+    var mkdocs_page_input_path = "specification/messages/com.sandpolis.core.net.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Com.sandpolis.core.net</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="rq_session">RQ_Session</h3>
+<p>Request that a new session be created. Any previous sessions associated with the
+instance are invalidated.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instance_uuid</td>
+<td>string</td>
+<td>The UUID of the requesting instance</td>
+</tr>
+<tr>
+<td>instance_type</td>
+<td>core.instance.InstanceType</td>
+<td>The instance type of the requesting instance</td>
+</tr>
+<tr>
+<td>instance_flavor</td>
+<td>core.instance.InstanceFlavor</td>
+<td>The instance flavor of the requesting instance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_session">RS_Session</h3>
+<p>Respond to a session request with a successful result.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instance_sid</td>
+<td>int32</td>
+<td>A SID for the requesting instance</td>
+</tr>
+<tr>
+<td>server_sid</td>
+<td>int32</td>
+<td>The SID of the server</td>
+</tr>
+<tr>
+<td>server_uuid</td>
+<td>string</td>
+<td>The UUID of the server</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_directconnection">RQ_DirectConnection</h3>
+<p>Request the server for a new direct connection.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cvid</td>
+<td>int32</td>
+<td>The requested node</td>
+</tr>
+<tr>
+<td>type</td>
+<td>LinkType</td>
+<td>The type of connection</td>
+</tr>
+<tr>
+<td>port</td>
+<td>int32</td>
+<td>An optional listener port. If specified, the requested node will attempt</td>
+</tr>
+<tr>
+<td>a connection on this port. Otherwise, the server will coordinate the connection.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_directconnection">RS_DirectConnection</h3>
+<p>Server response to a connection request.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>request</td>
+<td>RQ_Connection</td>
+<td>The connection request</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_connection">RQ_Connection</h3>
+<p>Request the instance to establish a new connection.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>string</td>
+<td>The host</td>
+</tr>
+<tr>
+<td>port</td>
+<td>int32</td>
+<td>The port</td>
+</tr>
+<tr>
+<td>type</td>
+<td>LinkType</td>
+<td>The link type</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ev_endpointclosed">EV_EndpointClosed</h3>
+<p>Indicates that a connection has been lost.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cvid</td>
+<td>int32</td>
+<td>The node that has lost connection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ev_networkchange">EV_NetworkChange</h3>
+<p>Indicates that the network has been updated.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node_added</td>
+<td>NodeAdded</td>
+<td>null</td>
+</tr>
+<tr>
+<td>node_removed</td>
+<td>NodeRemoved</td>
+<td>null</td>
+</tr>
+<tr>
+<td>connection_added</td>
+<td>LinkAdded</td>
+<td>null</td>
+</tr>
+<tr>
+<td>connection_removed</td>
+<td>LinkRemoved</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_stopstream">RQ_StopStream</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int32</td>
+<td>The stream ID of the stream to stop</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_stopstream">RS_StopStream</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STOP_STREAM_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>STOP_STREAM_INVALID</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

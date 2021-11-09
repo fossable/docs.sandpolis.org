@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Com.sandpolis.core.clientserver - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Com.sandpolis.core.clientserver";
+    var mkdocs_page_input_path = "specification/messages/com.sandpolis.core.clientserver.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Com.sandpolis.core.clientserver</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="rq_buildagent">RQ_BuildAgent</h3>
+<p>Request to build an agent for the given group.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>group</td>
+<td>string</td>
+<td>The group ID</td>
+</tr>
+<tr>
+<td>config</td>
+<td>core.instance.AgentConfig</td>
+<td>The agent configuration</td>
+</tr>
+<tr>
+<td>generator_options</td>
+<td>GeneratorOptions</td>
+<td>Options for the generator component</td>
+</tr>
+<tr>
+<td>packager_options</td>
+<td>PackagerOptions</td>
+<td>Options for the packager component</td>
+</tr>
+<tr>
+<td>deployment_options</td>
+<td>DeploymentOptions</td>
+<td>Options for the deployment component</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_buildagent">RS_BuildAgent</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUILD_AGENT_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>BUILD_AGENT_FAILED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_creategroup">RQ_CreateGroup</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The group's name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_creategroup">RS_CreateGroup</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE_GROUP_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CREATE_GROUP_FAILED_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_deletegroup">RQ_DeleteGroup</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_deletegroup">RS_DeleteGroup</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DELETE_GROUP_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DELETE_GROUP_FAILED_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_updategroup">RQ_UpdateGroup</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_updategroup">RS_UpdateGroup</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UPDATE_GROUP_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>UPDATE_GROUP_FAILED_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_createlistener">RQ_CreateListener</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>The listening address</td>
+</tr>
+<tr>
+<td>port</td>
+<td>int32</td>
+<td>The listening port</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_createlistener">RS_CreateListener</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE_LISTENER_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CREATE_LISTENER_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+<tr>
+<td>CREATE_LISTENER_INVALID_PORT</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_deletelistener">RQ_DeleteListener</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_deletelistener">RS_DeleteListener</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DELETE_LISTENER_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DELETE_LISTENER_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_updatelistener">RQ_UpdateListener</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_updatelistener">RS_UpdateListener</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UPDATE_LISTENER_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>UPDATE_LISTENER_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_login">RQ_Login</h3>
+<p>Request a login from the server</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>The login username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The password</td>
+</tr>
+<tr>
+<td>totp</td>
+<td>int32</td>
+<td>Time-based One-Time Password token</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_login">RS_Login</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGIN_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LOGIN_FAILED</td>
+<td>1</td>
+</tr>
+<tr>
+<td>LOGIN_FAILED_EXPIRED_USER</td>
+<td>2</td>
+</tr>
+<tr>
+<td>LOGIN_INVALID_USERNAME</td>
+<td>3</td>
+</tr>
+<tr>
+<td>LOGIN_INVALID_PASSWORD</td>
+<td>4</td>
+</tr>
+<tr>
+<td>LOGIN_INVALID_TOKEN</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_logout">RQ_Logout</h3>
+<p>Request that the current user be logged out</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_logout">RS_Logout</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGOUT_OK</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_serverbanner">RQ_ServerBanner</h3>
+<p>Request for the server's banner</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_serverbanner">RS_ServerBanner</h3>
+<p>Response bearing the server's banner</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maintenance</td>
+<td>bool</td>
+<td>Maintenance mode indicates that only superusers will be allowed to login</td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td>The 3-field version of the server</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>string</td>
+<td>A string to display on the login screen</td>
+</tr>
+<tr>
+<td>banner_image</td>
+<td>bytes</td>
+<td>An image to display on the login screen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_createuser">RQ_CreateUser</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>The user's immutable username</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_createuser">RS_CreateUser</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE_USER_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CREATE_USER_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_deleteuser">RQ_DeleteUser</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_deleteuser">RS_DeleteUser</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DELETE_USER_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>DELETE_USER_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rq_updateuser">RQ_UpdateUser</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rs_updateuser">RS_UpdateUser</h3>
+<p>null</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UPDATE_USER_OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td>UPDATE_USER_ACCESS_DENIED</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

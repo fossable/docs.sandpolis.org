@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Standard Agent - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Standard Agent";
+    var mkdocs_page_input_path = "specification/com.sandpolis.agent.kilo.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Standard Agent</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="standard-agent">Standard Agent</h1>
+<p>This JVM-based agent implementation has the most features and is consequently
+the most resource intensive. It's suitable when running on modern hardware where
+memory/storage is abundant.</p>
+<h2 id="installation-types">Installation Types</h2>
+<p>There are three ways to install the agent, each with advantages and
+disadvantages.</p>
+<h3 id="package-manager-installation">Package Manager Installation</h3>
+<p>This option makes installation itself easy, but requires some effort to
+configure the agent to connect to a server. This installation type also means
+that upgrades must only occur through the package manager.</p>
+<h4 id="filesystem-layout">Filesystem Layout</h4>
+<h5 id="pacman-arch-linux">Pacman (Arch Linux)</h5>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/usr/lib/systemd/system/sandpolis-agent.service</code></td>
+<td>Systemd service definition</td>
+</tr>
+<tr>
+<td><code>/usr/bin/sandpolis-agent-config</code></td>
+<td>Configuration executable</td>
+</tr>
+<tr>
+<td><code>/usr/bin/sandpolis-agent</code></td>
+<td>Main executable</td>
+</tr>
+<tr>
+<td><code>/usr/share/java/sandpolis-agent/lib</code></td>
+<td><code>LIB</code> location</td>
+</tr>
+<tr>
+<td><code>/usr/share/java/sandpolis-agent/plugin</code></td>
+<td><code>PLUGIN</code> location</td>
+</tr>
+<tr>
+<td><code>/var/lib/sandpolis-agent/data</code></td>
+<td><code>DATA</code> location</td>
+</tr>
+</tbody>
+</table>
+<h5 id="apk-alpine">Apk (Alpine)</h5>
+<h3 id="deployer-installation">Deployer Installation</h3>
+<p>This option requires no explicit configuration, but the <em>deployer</em> executable
+must be transferred to the host and invoked explicitly.</p>
+<h4 id="filesystem-layout_1">Filesystem Layout</h4>
+<p>Deployers install everything under a single <em>base directory</em> and create symbolic
+links in certain locations outside of the base directory.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default base directory path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>/opt/sandpolis-agent</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="docker-installation">Docker Installation</h3>
+<p>This option is easy to deploy and configure, but can limit the functionality of
+the agent in some cases.</p>
+<p>Certain elements of the host filesystem may be optionally mounted into the
+container.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

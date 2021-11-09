@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Agent Instance - Sandpolis Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Agent Instance";
+    var mkdocs_page_input_path = "specification/com.sandpolis.core.agent.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sandpolis Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tutorials</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/getting_started/">Getting Started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/gui/">Using the desktop client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tutorials/client/terminal/">Using the terminal client</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Specification</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">General</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../module.md">Module</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../instance.md">Instance</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Instances</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../agent.md">Agent</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../server.md">Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../distagent.md">Distagent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Messages</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../clientserver.md">Client/Server</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../serveragent.md">Server/Agent</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../plugins/desktop.md">Desktop Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/device.md">Device Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/filesystem.md">Filesystem Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/shell.md">Shell Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/snapshot.md">Snapshot Plugin</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../plugins/update.md">Update Plugin</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Implementation Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../../application/client.md">Client</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/server.md">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/agent.md">Agent</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../application/network.md">Networking</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sandpolis Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Agent Instance</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="agent-instance">Agent Instance</h1>
+<p>At a general level, agents are responsible for carrying out tasks for remote
+users. They can connect over the network to any other type of instance. At
+minimum, agents must be associated with one server.</p>
+<h2 id="instance-configuration">Instance Configuration</h2>
+<pre><code class="language-py">{
+  &quot;network&quot; : {
+    &quot;servers&quot; : String(),
+    &quot;timeout&quot; : Number(), # The server connection timeout in milliseconds
+    &quot;strict_certs&quot; : Boolean(), # The agent will refuse to connect to a server that presents an invalid certificate
+    &quot;polling_interval&quot; : Number(), # The connection poll interval in milliseconds
+  }
+}
+</code></pre>
+<h2 id="connection-modes">Connection Modes</h2>
+<p>There are two connection modes that have an impact on performance and latency.</p>
+<h3 id="continuous">Continuous</h3>
+<p>In continuous mode, the agent maintains its primary connection at all times. If
+the connection is lost, the agent will periodically attempt to reestablish the
+connection using the same parameters it used to establish the initial
+connection.</p>
+<p>The connection mode can be changed on-the-fly by a user or scheduled to change
+automatically according to the time and day.</p>
+<h3 id="polling">Polling</h3>
+<p>In polling mode, the agent intentionally closes the primary connection unless
+there exists an active stream. On a configurable schedule, the agent reconnects
+to a server, flushes any cached data, and checks for any new work items. After
+executing all available work items, the primary connection is closed again.</p>
+<p>The agent may attempt a spontaneous connection outside of the regular schedule
+if an internal agent process triggers it.</p>
+<h2 id="plugins">Plugins</h2>
+<p>Agents can optionally support plugins to enhance functionality beyond the
+standard feature set. Upon initial connection, the agent provides a list of
+plugin versions that it has loaded. The server responds with a list of plugin
+archives that the agent should install.</p>
+<h2 id="standard-feature-set">Standard Feature Set</h2>
+<p>The standard feature set is the minimum amount of functionality an agent
+implementation must provide.</p>
+<h3 id="agentmetadata">AgentMetadata</h3>
+<h2 id="upgrades">Upgrades</h2>
+<p>There are two ways to upgrade the agent:</p>
+<ul>
+<li>automatically by sending the update command to the server,</li>
+<li>manually by generating a new installer and executing it on the agent</li>
+</ul>
+<h3 id="manual-upgrade">Manual Upgrade</h3>
+<p>A manual upgrade is triggered when an installer is executed on the agent and the
+relevant base directory is already populated with an installation. If the agent
+is not running, the installer will overwrite the base directory and install
+itself. Any data that the agent has cached but not sent to the server will be
+lost!</p>
+<p>Advantages</p>
+<ul>
+<li>This is the only way to upgrade if the agent can no longer connect to the
+  server</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>Manual intervention required</li>
+<li>Cached data may be lost</li>
+</ul>
+<h3 id="automated-upgrade">Automated Upgrade</h3>
+<p>If the agent is connected to a server, it can be upgraded remotely. This will
+cause the server to fetch the agent configuration, generate a new installer, and
+transfer it to the agent. The agent then executes the new installer and
+terminates.</p>
+<h3 id="container-resident">Container Resident</h3>
+<h2 id="boot-agent">Boot Agent</h2>
+<p>Boot agents are a special subset of agent instances that run in a custom UEFI
+boot environment rather than on a host's OS.</p>
+<h3 id="configuration">Configuration</h3>
+<p>The boot agent accepts the following specific configuration options.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s7s.agent.boot.network.interface</code></td>
+<td></td>
+<td>A specific network interface to use</td>
+</tr>
+<tr>
+<td><code>s7s.agent.boot.network.dhcp</code></td>
+<td>true</td>
+<td>Whether the boot agent will attempt to obtain a DHCP address</td>
+</tr>
+<tr>
+<td><code>s7s.agent.boot.network.ip</code></td>
+<td></td>
+<td>A static IPv4 that will be used instead of DHCP</td>
+</tr>
+<tr>
+<td><code>s7s.agent.boot.network.netmask</code></td>
+<td></td>
+<td>The network mask for the static IPv4 address</td>
+</tr>
+</tbody>
+</table>
+<h3 id="boot-environment">Boot Environment</h3>
+<p>The boot agent environment occupies an entire partition on the host and
+contains:</p>
+<ul>
+<li>A bootloader</li>
+<li>A Linux kernel</li>
+<li><code>efibootmgr</code> executables</li>
+<li>Boot agent executables</li>
+<li>All library dependencies</li>
+</ul>
+<h3 id="startup">Startup</h3>
+<p>The boot environment does not provide a shell and merely executes the boot agent
+on startup.</p>
+<p>The boot agent immediately spawns an infinite connection loop for the configured
+server.</p>
+<h3 id="installation">Installation</h3>
+<p>Agent instances are capable of installing a boot agent on their host machine if
+installed with sufficient permissions.</p>
+<p>downloads a boot agent image to the partition and writes a new configuration
+according to parameters of the host OS or overrides provided by a client.</p>
+<p>Once the partition is written, the agent adds it to the end of the existing EFI
+boot order.</p>
+<h4 id="host-media">Host Media</h4>
+<p>In order to install the boot agent to the existing disk, a new partition of at
+least 250 MiB must first be created manually. The agent installs an additional
+bootloader to the existing ESP.</p>
+<h4 id="removable-media">Removable Media</h4>
+<p>The agent can erase an existing disk and create a new ESP and boot agent
+partition.</p>
+<h3 id="uninstallation">Uninstallation</h3>
+<p>To uninstall, an agent must remove the boot agent's entry in the EFI boot order
+and overwrite all data in the boot agent partition.</p>
+<h3 id="reboot-into-boot-agent">Reboot into boot agent</h3>
+<p>Agents can launch the boot agent indirectly by setting the <code>BootNext</code> variable
+to the index of the boot agent EFI entry and rebooting the machine.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
