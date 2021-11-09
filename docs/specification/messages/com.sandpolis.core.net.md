@@ -51,15 +51,15 @@ Indicates that a connection has been lost.
 |-------|------|-------------|
 | cvid | int32 | The node that has lost connection |
 
-### EV_NetworkDelta
+### EV_NetworkChange
 Indicates that the network has been updated.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | node_added | NodeAdded | null |
 | node_removed | NodeRemoved | null |
-| link_added | LinkAdded | null |
-| link_removed | LinkRemoved | null |
+| connection_added | LinkAdded | null |
+| connection_removed | LinkRemoved | null |
 
 ### RQ_StopStream
 null
