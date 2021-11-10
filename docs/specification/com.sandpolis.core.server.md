@@ -11,6 +11,7 @@ configured to listen on a different port or multiple ports concurrently.
 ## Instance Configuration
 
 ```py
+# com.sandpolis.core.server
 {
   "storage" : {
     "provider" : String(default="ephemeral"), # The database storage provider

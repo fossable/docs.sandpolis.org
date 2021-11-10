@@ -2,32 +2,29 @@ site_name: Sandpolis Documentation
 nav:
   - Home: index.md
   - Tutorials:
-      - Getting Started: tutorials/getting_started.md
-      - Using the desktop client: tutorials/client/gui.md
-      - Using the terminal client: tutorials/client/terminal.md
+    - Getting Started: tutorials/getting_started.md
+    - Using the desktop client: tutorials/client/gui.md
+    - Using the terminal client: tutorials/client/terminal.md
   - Specification:
-      - General:
-          - Module: specification/module.md
-          - Instance: specification/instance.md
-      - Instances:
-          - Agent: specification/agent.md
-          - Server: specification/server.md
-          - Distagent: specification/distagent.md
-      - Messages:
-          - Client/Server: specification/clientserver.md
-          - Server/Agent: specification/serveragent.md
-      - Plugins:
-          - Desktop Plugin: specification/plugins/desktop.md
-          - Device Plugin: specification/plugins/device.md
-          - Filesystem Plugin: specification/plugins/filesystem.md
-          - Shell Plugin: specification/plugins/shell.md
-          - Snapshot Plugin: specification/plugins/snapshot.md
-          - Update Plugin: specification/plugins/update.md
-  - Implementation Reference:
-      - Client: application/client.md
-      - Server: application/server.md
-      - Agent: application/agent.md
-      - Networking: application/network.md
+    - Modules:
+      - Agent: specification/com.sandpolis.core.agent.md
+      - Server: specification/com.sandpolis.core.server.md
+      - Deployer: specification/com.sandpolis.core.deployer.md
+    - Instances:
+      - Vanilla Server: specification/com.sandpolis.server.vanilla.md
+    - Plugins:
+      - Desktop Plugin: specification/com.sandpolis.plugin.desktop.md
+        - Messages: specification/messages/com.sandpolis.plugin.desktop.md
+      - Device Plugin: specification/com.sandpolis.plugin.device.md
+        - Messages: specification/messages/com.sandpolis.plugin.device.md
+      - Filesystem Plugin: specification/com.sandpolis/plugin.filesystem.md
+        - Messages: specification/messages/com.sandpolis.plugin.filesystem.md
+      - Shell Plugin: specification/com.sandpolis.plugin.shell.md
+        - Messages: specification/messages/com.sandpolis.plugin.shell.md
+      - Snapshot Plugin: specification/com.sandpolis.plugin.snapshot.md
+        - Messages: specification/messages/com.sandpolis.plugin.snapshot.md
+      - Update Plugin: specification/com.sandpolis.plugin.update.md
+        - Messages: specification/messages/com.sandpolis.plugin.update.md
 theme: readthedocs
 markdown_extensions:
   - admonition

@@ -27,20 +27,6 @@ Stream sources can push events to more than one sink simultaneously. This is
 called multicasting and can save bandwidth in situations where multiple users
 request the same resource at the same time.
 
-## Messages
-
-| Message                 | Sources           | Destinations      | Description                                                              |
-| ----------------------- | ----------------- | ----------------- | ------------------------------------------------------------------------ |
-| RQ_Session              | `client`, `agent` | `server`          |
-| RS_Session              | `server`          | `client`,`agent`  |
-| RQ_AddConnection        | `client`          | `server`          |
-| RQ_CoordinateConnection | `server`          | `client`, `agent` |
-| EV_NetworkChanged       | `server`          | `client`, `agent` | Indicates that some node in the network has changed in connection status |
-| RQ_InstallPlugin        | `client`          | `server`          | Request that a new plugin be installed                                   |
-| RQ_STStream             | `client`, `agent` | `server`          | Request a new state tree sync stream                                     |
-| EV_STStreamData         | `server`          |
-| RQ_CloseStream          |                   |                   | Request that a stream be closed                                          |
-
 ## Session
 
 Clients and agents maintain an ephemeral session which consists of a session
@@ -54,24 +40,3 @@ instance flavor encoded in them.
  012345678901234567890123 45678 901
 [        Base CVID       | FID |IID]
 ```
-
-### RQ_CoordinateConnection
-
-Request that the receiving instance establish a new connection to the given
-host. The receiver should attempt the connection as soon as possible.
-
-| Field          | Type   | Requirements        | Description                                       |
-| -------------- | ------ | ------------------- | ------------------------------------------------- |
-| host           | string | An IP address       | The connection host                               |
-| port           | int32  | A valid port number | The connection port                               |
-| protocol       | string | `tcp` or `udp`      | The connection protocol                           |
-| encryption_key | bytes  | 64 bytes            | The initial encryption key for the new connection |
-
-### RQ_STStream
-
-| Field     | Type            | Requirements                                 | Description |
-| --------- | --------------- | -------------------------------------------- | ----------- |
-| stream_id | int32           |
-| oid       | string          |                                              |
-| whitelist | repeated string |                                              |
-| direction | string          | "upstream", "downstream", or "bidirectional" |

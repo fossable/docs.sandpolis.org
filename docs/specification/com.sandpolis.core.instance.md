@@ -38,6 +38,7 @@ user-friendly "official" name.
 ## Instance Configuration
 
 ```py
+# com.sandpolis.core.instance
 {
   "runtime" : {
     "residency": Boolean(default=False), # Whether the instance is running in a container
