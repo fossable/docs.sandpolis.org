@@ -33,7 +33,7 @@ fs.readFile(process.argv[2], "utf8", function (err, data) {
 					value["fields"]
 				)) {
 					console.log(
-						`| ${field} | ${field_value["type"]["value"]} | ${field_value["comment"]} |`
+						`| \`${field}\` | \`${field_value["type"]["value"]}\` | ${field_value["comment"]} |`
 					);
 				}
 			} else if (value["syntaxType"] === "EnumDefinition") {
