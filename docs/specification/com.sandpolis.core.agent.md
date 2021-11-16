@@ -10,10 +10,12 @@ minimum, agents must be associated with one server.
 # com.sandpolis.core.agent
 {
   "network" : {
-    "servers" : String(),
-    "timeout" : Number(), # The server connection timeout in milliseconds
-    "strict_certs" : Boolean(), # The agent will refuse to connect to a server that presents an invalid certificate
-    "polling_interval" : Number(), # The connection poll interval in milliseconds
+    "servers"          : [
+      String(), # A server hostname and port
+    ],
+    "timeout"          : Number(),  # The server connection timeout in milliseconds
+    "strict_certs"     : Boolean(), # The agent will refuse to connect to a server that presents an invalid certificate
+    "polling_interval" : Number(),  # The connection poll interval in milliseconds
   }
 }
 ```

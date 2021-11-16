@@ -41,7 +41,8 @@ user-friendly "official" name.
 # com.sandpolis.core.instance
 {
   "runtime" : {
-    "residency": Boolean(default=False), # Whether the instance is running in a container
+    "residency"   : Boolean(default=False), # Whether the instance is running in a container
+    "development" : Boolean(default=False), # Whether development mode is enabled
   }
 }
 ```

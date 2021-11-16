@@ -15,9 +15,11 @@ cannot be updated or removed by a deployer.
     "address"    : String(), # The callback address
     "identifier" : String(), # The callback identifier
   },
-  "install_dir"  : String(), # The installation's base directory
-  "autorecover"  : String(), # Whether the agent can disregard elements of the config in case of failure
-  "autostart"    : Boolean(), # Whether the agent should be started on boot
+  "install"      : {
+    "install_dir"  : String(), # The installation's base directory
+    "autorecover"  : String(), # Whether the agent can disregard elements of the config in case of failure
+    "autostart"    : Boolean(), # Whether the agent should be started on boot
+  },
   "kilo"         : {
     "modules" : [
       {
