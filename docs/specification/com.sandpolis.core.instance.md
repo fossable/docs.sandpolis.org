@@ -40,9 +40,15 @@ user-friendly "official" name.
 ```py
 # com.sandpolis.core.instance
 {
-  "runtime" : {
-    "residency"   : Boolean(default=False), # Whether the instance is running in a container
-    "development" : Boolean(default=False), # Whether development mode is enabled
+  "residency"   : Boolean(default=False), # Whether the instance is running in a container
+  "development" : Boolean(default=False), # Whether development mode is enabled
+  "logging"     : {
+    "levels" : [
+      String(), # 
+    ]
+  },
+  "plugin": {
+    "enabled": Boolean(default=True), # Whether plugins will be loaded
   }
 }
 ```

@@ -13,9 +13,13 @@ minimum, agents must be associated with one server.
     "servers"          : [
       String(), # A server hostname and port
     ],
-    "timeout"          : Number(),  # The server connection timeout in milliseconds
-    "strict_certs"     : Boolean(), # The agent will refuse to connect to a server that presents an invalid certificate
-    "polling_interval" : Number(),  # The connection poll interval in milliseconds
+    "timeout"          : Number(default=1000),  # The server connection timeout in milliseconds
+    "strict_certs"     : Boolean(default=True), # The agent will refuse to connect to a server that presents an invalid certificate
+    "polling_interval" : Number(default=0),     # The connection poll interval in seconds
+  },
+  "auth" : {
+  	"password"    : String(),
+    "certificate" : String(),
   }
 }
 ```

@@ -75,6 +75,8 @@ Every group has exactly one owner and zero or more (user) members.
 
 ### Password Authentication Scheme
 
+The agent may provide a simple password embedded in the agent's configuration.
+
 After establishing a connection, agents may present an unsalted SHA512 hash of a
 password entered by the user to the server. The server compares the password to
 each agent group until it finds a match. If a match is found, the agent is
