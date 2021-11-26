@@ -4,7 +4,6 @@ Request metadata from an agent.
 
 Sources      : server
 Destinations : agent
-Response     : RS_AgentMetadata
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -14,43 +13,55 @@ Response containing agent metadata.
 
 Sources      : agent
 Destinations : server
-Request      : RQ_AgentMetadata
 
 | Field | Type | Description |
 |-------|------|-------------|
-| hostname | string | The network hostname |
-| install_directory | string | The install directory |
-| os | core.foundation.OsType | The OS family |
-| boot_agent_detected | bool | Whether a boot agent was detected on the system |
+| `hostname` | `string` | The network hostname |
+| `os` | `core.foundation.OsType` | The OS family |
+| `arch` | `core.foundation.ArchType` | The system architecture |
+| `boot_agent_detected` | `bool` | Whether a boot agent was detected on the system |
 
 ### RQ_LaunchBootAgent
 Request that the boot agent be started.
 
 Sources      : client, server
 Destinations : agent
-Response     : Outcome
 
 | Field | Type | Description |
 |-------|------|-------------|
-| target_uuid | string | The UUID of the partition containing the boot agent |
+| `target_uuid` | `string` | The UUID of the partition containing the boot agent |
+
+### RS_LaunchBootAgent
+null
+
+| Field | Description |
+|-------|-------------|
+| LAUNCH_BOOT_AGENT_OK | 0 |
+| LAUNCH_BOOT_AGENT_ACCESS_DENIED | 1 |
 
 ### RQ_UninstallBootAgent
 Request a boot agent be uninstalled from the system.
 
 Sources      : client, server
 Destinations : agent
-Response     : Outcome
 
 | Field | Type | Description |
 |-------|------|-------------|
-| target_uuid | string | The UUID of the partition containing the boot agent |
+| `target_uuid` | `string` | The UUID of the partition containing the boot agent |
+
+### RS_UninstallBootAgent
+null
+
+| Field | Description |
+|-------|-------------|
+| UNINSTALL_BOOT_AGENT_OK | 0 |
+| UNINSTALL_BOOT_AGENT_ACCESS_DENIED | 1 |
 
 ### RQ_FindBootAgents
 Request to locate all installed boot agents.
 
 Sources      : client, server
 Destinations : agent
-Response     : RS_FindBootAgents
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -60,28 +71,33 @@ Response listing boot agent installations.
 
 Sources      : client, server
 Destinations : agent
-Request      : RQ_FindBootAgents
 
 | Field | Type | Description |
 |-------|------|-------------|
-| installation | BootAgentInstallation | null |
+| `installation` | `BootAgentInstallation` | null |
 
 ### RQ_InstallBootAgent
 Request a boot agent be installed on the system.
 
 Sources      : client, server
 Destinations : agent
-Response     : Outcome
 
 | Field | Type | Description |
 |-------|------|-------------|
-| partition_uuid | string | The UUID of the target partition |
-| device_uuid | string | The UUID of the target device |
-| interface_mac | string | The MAC address of the network interface to use for connections |
-| use_dhcp | bool | Whether DHCP will be used |
-| static_ip | string | A static IP address as an alternative to DHCP |
-| netmask | string | The netmask corresponding to the static IP |
-| gateway_ip | string | The gateway IP |
+| `partition_uuid` | `string` | The UUID of the target partition |
+| `interface_mac` | `string` | The MAC address of the network interface to use for connections |
+| `use_dhcp` | `bool` | Whether DHCP will be used |
+| `static_ip` | `string` | A static IP address as an alternative to DHCP |
+| `netmask` | `string` | The netmask corresponding to the static IP |
+| `gateway_ip` | `string` | The gateway IP |
+
+### RS_InstallBootAgent
+null
+
+| Field | Description |
+|-------|-------------|
+| INSTALL_BOOT_AGENT_OK | 0 |
+| INSTALL_BOOT_AGENT_ACCESS_DENIED | 1 |
 
 ### RQ_FindBootAgentCandidates
 Request candidate partitions and devices that may be suitable for a boot
@@ -89,7 +105,6 @@ agent installation.
 
 Sources      : client, server
 Destinations : agent
-Response     : RS_FindBootAgentCandidates
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -103,20 +118,19 @@ Request      : RQ_FindBootAgents
 
 | Field | Type | Description |
 |-------|------|-------------|
-| device_candidate | DeviceCandidate | null |
-| partition_candidate | PartitionCandidate | null |
+| `device_candidate` | `DeviceCandidate` | null |
+| `partition_candidate` | `PartitionCandidate` | null |
 
 ### RQ_AuthSession
 Request to authenticate the current session.
 
 Sources      : agent
 Destinations : server
-Response     : Outcome
 
 | Field | Type | Description |
 |-------|------|-------------|
-| password | string | The group password |
-| token | string | The authentication token |
+| `password` | `string` | The group password |
+| `token` | `string` | The authentication token |
 
 ### RS_AuthSession
 null
@@ -131,8 +145,14 @@ Request to refresh an agent's authentication certificate.
 
 Sources      : server
 Destinations : agent
-Response     : Outcome
 
 | Field | Type | Description |
 |-------|------|-------------|
-| certificate | bytes | The new "client" certificate |
+| `certificate` | `bytes` | The new "client" certificate |
+
+### RQ_ChangePowerState
+Request that the agent alter its power state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `new_state` | `PowerState` | null |

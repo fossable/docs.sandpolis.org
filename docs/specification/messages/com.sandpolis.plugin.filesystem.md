@@ -1,74 +1,66 @@
 
-### EV_FileListing
-Updates to a directory listing.
+### RQ_DirectoryStream
+Start a new stream that will receive file/directory updates.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| fmid | int32 | null |
-| path | string | The directory's absolute path |
-| listing | FileListlet | Listing updates |
+| `stream_id` | `int32` | null |
+| `path` | `string` | The initial directory path |
+| `include_sizes` | `bool` | Indicates whether file sizes should be included |
+| `include_create_timestamps` | `bool` | Indicates whether creation timestamps should be included |
+| `include_modify_timestamps` | `bool` | Indicates whether modification timestamps should be included |
+| `include_access_timestamps` | `bool` | Indicates whether access timestamps should be included |
+| `include_mime_types` | `bool` | Indicates whether MIME types should be included |
+| `include_owners` | `bool` | Indicates whether file owners should be included |
+| `include_groups` | `bool` | Indicates whether file groups should be included |
 
-### RQ_FileListing
-Request a directory listing.
+### RS_DirectoryStream
+Response to a directory stream request.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| path | string | null |
-| options | FsHandleOptions | null |
+| Field | Description |
+|-------|-------------|
+| DIRECTORY_STREAM_OK | 0 |
+| DIRECTORY_STREAM_FAILED_PATH_NOT_EXISTS | 1 |
 
-### RS_FileListing
-Response to a directory listing request.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| path | string | The directory's absolute path |
-| listing | FileListlet | The directory listing |
-
-### RQ_FileInfo
-Request for detailed file information.
+### EV_DirectoryStream
+Updates to a directory stream.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| file | string | An absolute path |
+| `path` | `string` | The directory's absolute path |
+| `entry` | `DirectoryEntry` | Listing updates |
 
-### RS_FileInfo
-Response to a file info request.
+### RQ_MountStreamFuse
+null
 
 | Field | Type | Description |
 |-------|------|-------------|
-| local_icon | bytes | The file's icon on the local platform |
-| path | string | The file's location |
-| name | string | The file's name |
-| ctime | int64 | The file's creation time |
-| mtime | int64 | The file's modification time |
-| atime | int64 | The file's access time |
-| size | int64 | The file's size in bytes or number of elements if directory |
-| mime | string | The file's MIME type |
+| `stream_id` | `int64` | null |
+| `path` | `string` | The directory's absolute path |
 
-### RQ_FileDelete
+### RS_MountStreamFuse
+null
+
+| Field | Description |
+|-------|-------------|
+| MOUNT_STREAM_OK | 0 |
+
+### EV_MountStreamFuse
+null
+
+| Field | Type | Description |
+|-------|------|-------------|
+
+### RQ_DeleteFile
 Request for one or more files to be deleted.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| target | string | A list of absolute paths to delete |
+| `target` | `string` | A list of absolute paths to delete |
 
-### RQ_FsHandle
-Request to open a new filesystem handle.
+### RS_DeleteFile
+null
 
-| Field | Type | Description |
-|-------|------|-------------|
-| options | FsHandleOptions | null |
-
-### RS_FsHandle
-Response to a handle request.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| fmid | int32 | The filesystem handle's ID |
-
-### RQ_CloseFsHandle
-Request to close the given handle.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| fmid | int32 | The filesystem handle to close |
+| Field | Description |
+|-------|-------------|
+| DELETE_FILE_OK | 0 |

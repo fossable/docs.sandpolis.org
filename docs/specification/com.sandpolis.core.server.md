@@ -76,15 +76,13 @@ Every group has exactly one owner and zero or more (user) members.
 ### Password Authentication Scheme
 
 The agent may provide a simple password embedded in the agent's configuration.
+The server compares the password to each agent group until it finds a match. If
+a match is found, the agent is becomes authenticated to the matching agent
+group. Otherwise, the connection is closed if more than 5 attempts were made on
+that connection.
 
-After establishing a connection, agents may present an unsalted SHA512 hash of a
-password entered by the user to the server. The server compares the password to
-each agent group until it finds a match. If a match is found, the agent is
-becomes authenticated to the matching agent group. Otherwise, the connection is
-closed if more than 5 attempts were made on that connection.
-
-Since a user must type the password manually, the server will attempt to
-configure the certificate authentication scheme for all subsequent connections.
+Password authentication may be upgraded to the certificate authentication scheme
+for all subsequent connections.
 
 ### Token Authentication Scheme
 

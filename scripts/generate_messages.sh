@@ -2,7 +2,7 @@
 ## Generate markdown files from the message implementations.
 
 # Assume the sandpolis repo is a sibling to the docs repo
-if [ -d ../../sandpolis ]; then
+if [ ! -d ../../sandpolis ]; then
 	echo "No sandpolis repository found" 1>&2
 	exit 1
 fi

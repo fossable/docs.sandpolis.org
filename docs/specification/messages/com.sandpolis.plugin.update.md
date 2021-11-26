@@ -4,14 +4,14 @@ null
 
 | Field | Type | Description |
 |-------|------|-------------|
-| package | string | null |
+| `package` | `string` | null |
 
 ### RQ_RemovePackages
 null
 
 | Field | Type | Description |
 |-------|------|-------------|
-| package | string | null |
+| `package` | `string` | null |
 
 ### RQ_RefreshPackages
 null
