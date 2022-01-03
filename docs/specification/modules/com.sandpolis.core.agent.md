@@ -14,6 +14,7 @@ minimum, agents must be associated with one server.
       String(), # A server hostname and port
     ],
     "timeout"          : Number(default=1000),  # The server connection timeout in milliseconds
+    "cooldown"         : Number(default=1000),  # How long to wait after each connection
     "strict_certs"     : Boolean(default=True), # The agent will refuse to connect to a server that presents an invalid certificate
     "polling_interval" : Number(default=0),     # The connection poll interval in seconds
   },

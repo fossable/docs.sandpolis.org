@@ -43,78 +43,56 @@ export SPECS="../docs/specification"
 		## 1 Modules
 	EOF
 
-	cat ${SPECS}/com.sandpolis.core.agent.md \
-		| add_section_numbers '1.1'
-	cat ${SPECS}/com.sandpolis.core.client.md \
-		| add_section_numbers '1.2'
-	cat ${SPECS}/com.sandpolis.core.deployer.md \
-		| add_section_numbers '1.3'
-	cat ${SPECS}/com.sandpolis.core.probe.md \
-		| add_section_numbers '1.4'
-	cat ${SPECS}/com.sandpolis.core.server.md \
-		| add_section_numbers '1.5'
 	(
-		cat ${SPECS}/com.sandpolis.core.instance.md
+		cat ${SPECS}/modules/com.sandpolis.core.instance.md
 		cat ${SPECS}/messages/com.sandpolis.core.instance.md
 	) | add_section_numbers '1.6'
-	(
-		cat ${SPECS}/com.sandpolis.core.net.md
-		cat ${SPECS}/messages/com.sandpolis.core.net.md
-	) | add_section_numbers '1.7'
-	(
-		cat ${SPECS}/com.sandpolis.core.clientserver.md
-		cat ${SPECS}/messages/com.sandpolis.core.clientserver.md
-	) | add_section_numbers '1.8'
-	(
-		cat ${SPECS}/com.sandpolis.core.serveragent.md
-		cat ${SPECS}/messages/com.sandpolis.core.serveragent.md
-	) | add_section_numbers '1.9'
 
 	cat <<-EOF
 		## 2 Standard Instances
 	EOF
 
-	cat ${SPECS}/com.sandpolis.server.vanilla.md \
+	cat ${SPECS}/modules/com.sandpolis.server.vanilla.md \
 		| add_section_numbers '2.1'
-	cat ${SPECS}/com.sandpolis.agent.kilo.md \
+	cat ${SPECS}/modules/com.sandpolis.agent.kilo.md \
 		| add_section_numbers '2.2'
-	cat ${SPECS}/com.sandpolis.agent.micro.md \
+	cat ${SPECS}/modules/com.sandpolis.agent.micro.md \
 		| add_section_numbers '2.3'
-	cat ${SPECS}/com.sandpolis.agent.boot.md \
+	cat ${SPECS}/modules/com.sandpolis.agent.boot.md \
 		| add_section_numbers '2.4'
-	cat ${SPECS}/com.sandpolis.client.lifegem.md \
+	cat ${SPECS}/modules/com.sandpolis.client.lifegem.md \
 		| add_section_numbers '2.5'
-	cat ${SPECS}/com.sandpolis.client.brightstone.md \
+	cat ${SPECS}/modules/com.sandpolis.client.brightstone.md \
 		| add_section_numbers '2.6'
 
 	cat <<-EOF
 		## 3 Standard Plugins
 	EOF
 
-	cat ${SPECS}/com.sandpolis.plugin.alert.md \
+	cat ${SPECS}/modules/com.sandpolis.plugin.alert.md \
 		| add_section_numbers '3.1'
 	(
-		cat ${SPECS}/com.sandpolis.plugin.desktop.md
+		cat ${SPECS}/modules/com.sandpolis.plugin.desktop.md
 		cat ${SPECS}/messages/com.sandpolis.plugin.desktop.md
 	) | add_section_numbers '3.2'
 	(
-		cat ${SPECS}/com.sandpolis.plugin.device.md
+		cat ${SPECS}/modules/com.sandpolis.plugin.device.md
 		cat ${SPECS}/messages/com.sandpolis.plugin.device.md
 	) | add_section_numbers '3.3'
 	(
-		cat ${SPECS}/com.sandpolis.plugin.filesystem.md
+		cat ${SPECS}/modules/com.sandpolis.plugin.filesystem.md
 		cat ${SPECS}/messages/com.sandpolis.plugin.filesystem.md
 	) | add_section_numbers '3.4'
 	(
-		cat ${SPECS}/com.sandpolis.plugin.shell.md
+		cat ${SPECS}/modules/com.sandpolis.plugin.shell.md
 		cat ${SPECS}/messages/com.sandpolis.plugin.shell.md
 	) | add_section_numbers '3.5'
 	(
-		cat ${SPECS}/com.sandpolis.plugin.snapshot.md
+		cat ${SPECS}/modules/com.sandpolis.plugin.snapshot.md
 		cat ${SPECS}/messages/com.sandpolis.plugin.snapshot.md
 	) | add_section_numbers '3.6'
 	(
-		cat ${SPECS}/com.sandpolis.plugin.update.md
+		cat ${SPECS}/modules/com.sandpolis.plugin.update.md
 		cat ${SPECS}/messages/com.sandpolis.plugin.update.md
 	) | add_section_numbers '3.7'
 

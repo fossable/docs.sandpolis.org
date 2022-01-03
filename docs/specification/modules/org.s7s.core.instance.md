@@ -35,19 +35,24 @@ user-friendly "official" name.
 | `deployer` | `rust`          | Rust                     | Agent deployer (Rust) |
 | `deployer` | `java`          | Java                     | Agent deployer (Java) |
 
+## Configuration Model
+
+### Precedence
+
+
 ## Instance Configuration
 
 ```py
 # com.sandpolis.core.instance
 {
-  "residency"   : Boolean(default=False), # Whether the instance is running in a container
-  "development" : Boolean(default=False), # Whether development mode is enabled
-  "logging"     : {
+  "container_resident" : Boolean(default=False), # Whether the instance is running in a container
+  "development"        : Boolean(default=False), # Whether development mode is enabled
+  "logging"            : {
     "levels" : [
       String(), # 
     ]
   },
-  "plugin": {
+  "plugin"             : {
     "enabled": Boolean(default=True), # Whether plugins will be loaded
   }
 }
@@ -56,15 +61,18 @@ user-friendly "official" name.
 ## Build Metadata
 
 ```py
+# com.sandpolis.build.json
 {
-  "build_platform"   : String(), # The build platform
-  "build_timestamp"  : Number(), # The build timestamp
-  "instance_version" : String(), # The instance's version
-  "gradle_version"   : String(), # The Gradle version
-  "java_version"     : String(), # The Java version
-  "kotlin_version"   : String(), # The kotlin version is applicable
-  "rust_version"     : String(), # The rust version if applicable
-  "dependencies"     : [
+  "platform"   : String(), # The build platform
+  "timestamp"  : Number(), # The build timestamp
+  "versions"   : {
+    "instance" : String(), # The instance's version
+    "gradle"   : String(), # The Gradle version
+    "java"     : String(), # The Java version
+    "kotlin"   : String(), # The kotlin version is applicable
+    "rust"     : String(), # The rust version if applicable
+  },
+  "dependencies" : [
     String(), # The artifact coordinates in G:A:V format
   ]
 }

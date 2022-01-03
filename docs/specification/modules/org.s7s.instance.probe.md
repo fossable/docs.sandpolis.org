@@ -4,8 +4,8 @@ Probes are similar to agents, but are only allowed to egress data to a server.
 They cannot receive messages, so their configuration is immutable unless the
 system also runs an agent capable of managing probe instances.
 
-Probe instances are designed to be extremely lightweight and run on almost any
-hardware.
+This design is a security feature which ensures probe instances cannot be compromised
+
 
 ## Probe Configuration
 
