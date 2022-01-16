@@ -28,3 +28,6 @@ Each user has an _alert level_ that determines what alert notifications they wil
 ### Resource Alerts
 
 ### Systemd Alerts
+
+### Other
+- Filesystem has been remounted RW
