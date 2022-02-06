@@ -3,15 +3,10 @@
 Every Sandpolis network must include one server instance at minimum. Servers are
 responsible for coordinating interactions among instances and persisting data.
 
-## Listening port
-
-The Sandpolis server listens on TCP port **8768** by default, but can be
-configured to listen on a different port or multiple ports concurrently.
-
 ## Instance Configuration
 
 ```py
-# com.sandpolis.core.server
+# com.sandpolis.server
 {
   "storage" : {
     "provider" : String(default="ephemeral"), # The database storage provider
@@ -29,10 +24,37 @@ configured to listen on a different port or multiple ports concurrently.
 }
 ```
 
-## First Start
+## Server Strata
 
-If the server starts with ephemeral storage or an empty database, the server
-enters "first start" mode. This mode has the following implications:
+There can be multiple servers in a Sandpolis network which improves both scalability
+and failure tolerance. There are two roles in which a server can exist: a global level
+and a local level.
+
+### Global Stratum (GS)
+
+By default, servers exist in the global stratum. Every network must have at least one
+GS server and every GS server maintains a persistent connection to every other GS
+server (fully-connected graph).
+
+Every GS server maintains a database containing the entire contents of the network.
+
+### Local Stratum (LS)
+
+Local stratum servers are used to serve localized regions and can operate independently
+if all GS servers becomes unreachable.
+
+Every LS server maintains a database containing just the contents relevant to it which
+is continuously replicated to a GS server's database.
+
+## Persistent Storage
+
+CouchDB is used for persistent storage on servers because of its document-based
+"NoSQL" architecture and robust synchronization capabilities.
+
+Servers start a local-only listener for every GS server which proxies requests from
+the database to the appropriate server instance. This way, all database traffic
+is routed over the primary connection instead of requiring a secondary connection to
+be allowed.
 
 ### Default admin password
 
@@ -42,10 +64,10 @@ authentication before proceeding after the first login.
 
 ## Connection Blocking
 
-The server will refuse connections from IP addresses on a configurable blocklist
+The server will refuse connections from IP addresses on a configurable block-list
 or those that trigger the global rate-limiting policy.
 
-IP address on a configurable whitelist are exempt from rate-limiting.
+IP addresses on a configurable allow-list are exempt from rate-limiting.
 
 ## Permissions
 
