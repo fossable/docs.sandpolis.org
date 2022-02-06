@@ -8,6 +8,9 @@ responsible for coordinating interactions among instances and persisting data.
 ```py
 # com.sandpolis.server
 {
+  "cluster": [
+    String(format="ipv4"),
+  ],
   "storage" : {
     "provider" : String(default="ephemeral"), # The database storage provider
     "mongodb" : {
