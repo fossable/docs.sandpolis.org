@@ -3,6 +3,41 @@
 Every Sandpolis network must include one server instance at minimum. Servers are
 responsible for coordinating interactions among instances and persisting data.
 
+## Server API
+
+| URL                                                | Method | Description                             | Request Body | Response Body |
+| -------------------------------------------------- | ------ | ----------------------------------------| ------------ | ------------- |
+| `/v1/agent/{iid}/power`                            | POST   | Update power state on an agent          | | |
+| `/v1/server/{iid}/banner`                          | GET    | Return the server's banner information  | | |
+| `/v1/server/{iid}/instances/stream`                | POST   | Open a new unidirectional change stream | | |
+| `/v1/server/{iid}/instances`                       | DELETE | Delete a document by OID                | | |
+| `/v1/server/{iid}/instances`                       | GET    | Return a document by OID                | | |
+| `/v1/server/{iid}/instances`                       | PUT    | Update a document by OID                | | |
+| `/v1/server/{iid}/listeners/stream`                | POST   | Open a new listener change stream       | | |
+| `/v1/server/{iid}/listeners/{listeners_id}/stream` | POST   | Open a new listener change stream       | | |
+| `/v1/server/{iid}/listeners/{listeners_id}`        | DELETE | Remove an existing listener             | | |
+| `/v1/server/{iid}/listeners/{listeners_id}`        | GET    | Return details on the listener          | | |
+| `/v1/server/{iid}/listeners/{listeners_id}`        | PUT    | Update an existing listener             | | |
+| `/v1/server/{iid}/listeners`                       | GET    | List existing listeners                 | | |
+| `/v1/server/{iid}/listeners`                       | POST   | Create a new listener                   | | |
+| `/v1/server/{iid}/network/stream`                  | POST   | Open a new network change stream        | | |
+| `/v1/server/{iid}/network`                         | GET    | List the network table                  | | |
+| `/v1/server/{iid}/session`                         | DELETE | Destroy an existing session             | | |
+| `/v1/server/{iid}/session`                         | POST   | Establish a new session                 | | |
+| `/v1/server/{iid}/tunnels/stream`                  | POST   | Open a new tunnel change stream         | | |
+| `/v1/server/{iid}/tunnels/{tunnel_id}/stream`      | POST   | Open a new tunnel change stream         | | |
+| `/v1/server/{iid}/tunnels/{tunnel_id}`             | DELETE | Destroy an existing tunnel              | | |
+| `/v1/server/{iid}/tunnels/{tunnel_id}`             | GET    | Return details on an existing tunnel    | | |
+| `/v1/server/{iid}/tunnels/{tunnel_id}`             | PUT    | Update an existing tunnel               | | |
+| `/v1/server/{iid}/tunnels`                         | GET    | List tunnel information                 | | |
+| `/v1/server/{iid}/users/stream`                    | POST   | Open a new user change stream           | | |
+| `/v1/server/{iid}/users/{user_id}/stream`          | POST   | Open a new user change stream           | | |
+| `/v1/server/{iid}/users/{user_id}`                 | DELETE | Remove an existing user account         | | |
+| `/v1/server/{iid}/users/{user_id}`                 | GET    | Return details on the user account      | | |
+| `/v1/server/{iid}/users/{user_id}`                 | PUT    | Update an existing user account         | | |
+| `/v1/server/{iid}/users`                           | GET    | List existing user accounts             | | |
+| `/v1/server/{iid}/users`                           | POST   | Create a new user account               | | |
+
 ## Instance Configuration
 
 ```py
