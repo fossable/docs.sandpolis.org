@@ -5,38 +5,47 @@ responsible for coordinating interactions among instances and persisting data.
 
 ## Server API
 
-| URL                                                | Method | Description                             | Request Body | Response Body |
-| -------------------------------------------------- | ------ | ----------------------------------------| ------------ | ------------- |
-| `/v1/agent/{iid}/power`                            | POST   | Update power state on an agent          | | |
-| `/v1/server/{iid}/banner`                          | GET    | Return the server's banner information  | | |
-| `/v1/server/{iid}/instances/stream`                | POST   | Open a new unidirectional change stream | | |
-| `/v1/server/{iid}/instances`                       | DELETE | Delete a document by OID                | | |
-| `/v1/server/{iid}/instances`                       | GET    | Return a document by OID                | | |
-| `/v1/server/{iid}/instances`                       | PUT    | Update a document by OID                | | |
-| `/v1/server/{iid}/listeners/stream`                | POST   | Open a new listener change stream       | | |
-| `/v1/server/{iid}/listeners/{listeners_id}/stream` | POST   | Open a new listener change stream       | | |
-| `/v1/server/{iid}/listeners/{listeners_id}`        | DELETE | Remove an existing listener             | | |
-| `/v1/server/{iid}/listeners/{listeners_id}`        | GET    | Return details on the listener          | | |
-| `/v1/server/{iid}/listeners/{listeners_id}`        | PUT    | Update an existing listener             | | |
-| `/v1/server/{iid}/listeners`                       | GET    | List existing listeners                 | | |
-| `/v1/server/{iid}/listeners`                       | POST   | Create a new listener                   | | |
-| `/v1/server/{iid}/network/stream`                  | POST   | Open a new network change stream        | | |
-| `/v1/server/{iid}/network`                         | GET    | List the network table                  | | |
-| `/v1/server/{iid}/session`                         | DELETE | Destroy an existing session             | | |
-| `/v1/server/{iid}/session`                         | POST   | Establish a new session                 | | |
-| `/v1/server/{iid}/tunnels/stream`                  | POST   | Open a new tunnel change stream         | | |
-| `/v1/server/{iid}/tunnels/{tunnel_id}/stream`      | POST   | Open a new tunnel change stream         | | |
-| `/v1/server/{iid}/tunnels/{tunnel_id}`             | DELETE | Destroy an existing tunnel              | | |
-| `/v1/server/{iid}/tunnels/{tunnel_id}`             | GET    | Return details on an existing tunnel    | | |
-| `/v1/server/{iid}/tunnels/{tunnel_id}`             | PUT    | Update an existing tunnel               | | |
-| `/v1/server/{iid}/tunnels`                         | GET    | List tunnel information                 | | |
-| `/v1/server/{iid}/users/stream`                    | POST   | Open a new user change stream           | | |
-| `/v1/server/{iid}/users/{user_id}/stream`          | POST   | Open a new user change stream           | | |
-| `/v1/server/{iid}/users/{user_id}`                 | DELETE | Remove an existing user account         | | |
-| `/v1/server/{iid}/users/{user_id}`                 | GET    | Return details on the user account      | | |
-| `/v1/server/{iid}/users/{user_id}`                 | PUT    | Update an existing user account         | | |
-| `/v1/server/{iid}/users`                           | GET    | List existing user accounts             | | |
-| `/v1/server/{iid}/users`                           | POST   | Create a new user account               | | |
+| URL                                                | Method | Description                             | Request Body              | Response Body |
+| -------------------------------------------------- | ------ | ----------------------------------------| ------------------------- | ------------- |
+| `/v1/agent/{iid}/bootagent/{agent_id}/launch`      | POST   | Reboot into a boot agent                |                           | PostBootagentLaunchResponse |
+| `/v1/agent/{iid}/bootagent/{agent_id}/uninstall`   | POST   | Remove a boot agent from the system     |                           | PostBootagentUninstallResponse |
+| `/v1/agent/{iid}/bootagent`                        | GET    | Find installed boot agents              |                           | GetBootagentResponse |
+| `/v1/agent/{iid}/bootagent`                        | POST   | Install a boot agent on the system      | PostBootagentRequest      | PostBootagentResponse |
+| `/v1/agent/{iid}/power`                            | POST   | Modify the power state on an agent      | PostPowerRequest          | PostPowerResponse |
+| `/v1/agent/{iid}/update`                           | POST   | Update the agent                        | PostAgentUpdateRequest    | PostAgentUpdateResponse |
+| `/v1/agent/{iid}/uninstall`                        | POST   | Uninstall the agent                     | PostAgentUninstallRequest | PostAgentUninstallResponse |
+| `/v1/server/{iid}/banner`                          | GET    | Return the server's banner information  |                           | BannerResponse |
+| `/v1/server/{iid}/instances/stream`                | POST   | Open a new unidirectional change stream | | PostInstanceStreamResponse |
+| `/v1/server/{iid}/instances`                       | DELETE | Delete a document by OID                | | DeleteInstanceResponse |
+| `/v1/server/{iid}/instances`                       | GET    | Return a document by OID                | | GetInstanceResponse |
+| `/v1/server/{iid}/instances`                       | PUT    | Update a document by OID                | | PutInstanceResponse |
+| `/v1/server/{iid}/listeners/stream`                | POST   | Open a new listener change stream       | PostListenerStreamRequest | PostListenerStreamResponse |
+| `/v1/server/{iid}/listeners/{listeners_id}/stream` | POST   | Open a new listener change stream       | PostListenerStreamRequest | PostListenerStreamResponse |
+| `/v1/server/{iid}/listeners/{listeners_id}`        | DELETE | Remove an existing listener             |                           | DeleteListenerResponse |
+| `/v1/server/{iid}/listeners/{listeners_id}`        | GET    | Return details on the listener          |                           | GetListenerResponse |
+| `/v1/server/{iid}/listeners/{listeners_id}`        | PUT    | Update an existing listener             | PutListenerRequest        | PutListenerResponse |
+| `/v1/server/{iid}/listeners`                       | GET    | List existing listeners                 |                           | GetListenerResponse |
+| `/v1/server/{iid}/listeners`                       | POST   | Create a new listener                   | PostListenerRequest       | PostListenerResponse |
+| `/v1/server/{iid}/network/stream`                  | POST   | Open a new network change stream        | PostNetworkStreamRequest  | PostNetworkStreamResponse |
+| `/v1/server/{iid}/network`                         | GET    | List the network table                  | PostNetworkStreamRequest  | PostNetworkStreamResponse |
+| `/v1/server/{iid}/ping`                            | GET    | Send an application-level ping          |                           | GetPingResponse         |
+| `/v1/server/{iid}/session`                         | DELETE | Destroy an existing session             |                           | DeleteSessionResponse |
+| `/v1/server/{iid}/session/renew`                   | POST   | Renew the current session               |                           | PostSessionRenewResponse |
+| `/v1/server/{iid}/tunnels/stream`                  | POST   | Open a new tunnel change stream         | PostTunnelStreamRequest   | PostTunnelStreamResponse |
+| `/v1/server/{iid}/tunnels/{tunnel_id}/stream`      | POST   | Open a new tunnel change stream         | PostTunnelStreamRequest   | PostTunnelStreamResponse |
+| `/v1/server/{iid}/tunnels/{tunnel_id}`             | DELETE | Destroy an existing tunnel              |                           | DeleteTunnelResponse |
+| `/v1/server/{iid}/tunnels/{tunnel_id}`             | GET    | Return details on an existing tunnel    |                           | GetTunnelResponse |
+| `/v1/server/{iid}/tunnels/{tunnel_id}`             | PUT    | Update an existing tunnel               | PutTunnelRequest          | PutTunnelResponse |
+| `/v1/server/{iid}/tunnels`                         | GET    | List tunnel information                 |                           | GetTunnelResponse |
+| `/v1/server/{iid}/tunnels`                         | POST   | Create a new tunnel                     | PostTunnelRequest         | PostTunnelStreamResponse     |
+| `/v1/server/{iid}/users/stream`                    | POST   | Open a new user change stream           |                           | PostUserStreamResponse  |
+| `/v1/server/{iid}/users/{user_id}/stream`          | POST   | Open a new user change stream           |                           | PostUserStreamResponse |
+| `/v1/server/{iid}/users/{user_id}`                 | DELETE | Remove an existing user account         |                           | DeleteUserResponse     |
+| `/v1/server/{iid}/users/{user_id}`                 | GET    | Return details on the user account      |                           | GetUserResponse        |
+| `/v1/server/{iid}/users/{user_id}`                 | PUT    | Update an existing user account         | PutUserRequest            | PutUserResponse         |
+| `/v1/server/{iid}/users`                           | GET    | List existing user accounts             |                           | GetUserResponse         |
+| `/v1/server/{iid}/users`                           | POST   | Create a new user account               | PostUserRequest           | PostUserResponse        |
+
 
 ## Instance Configuration
 
