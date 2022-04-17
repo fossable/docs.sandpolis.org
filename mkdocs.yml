@@ -1,4 +1,7 @@
 site_name: Sandpolis Documentation
+theme: readthedocs
+markdown_extensions:
+  - admonition
 nav:
   - Home: index.md
   - Tutorials:
@@ -25,6 +28,3 @@ nav:
         - Messages: specification/messages/com.sandpolis.plugin.snapshot.md
       - Update Plugin: specification/com.sandpolis.plugin.update.md
         - Messages: specification/messages/com.sandpolis.plugin.update.md
-theme: readthedocs
-markdown_extensions:
-  - admonition

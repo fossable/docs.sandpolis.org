@@ -12,13 +12,18 @@ responsible for coordinating interactions among instances and persisting data.
 | `/v1/agent/{iid}/bootagent`                        | GET    | Find installed boot agents              |                           | GetBootagentResponse |
 | `/v1/agent/{iid}/bootagent`                        | POST   | Install a boot agent on the system      | PostBootagentRequest      | PostBootagentResponse |
 | `/v1/agent/{iid}/power`                            | POST   | Modify the power state on an agent      | PostPowerRequest          | PostPowerResponse |
-| `/v1/agent/{iid}/update`                           | POST   | Update the agent                        | PostAgentUpdateRequest    | PostAgentUpdateResponse |
 | `/v1/agent/{iid}/uninstall`                        | POST   | Uninstall the agent                     | PostAgentUninstallRequest | PostAgentUninstallResponse |
+| `/v1/agent/{iid}/update`                           | POST   | Update the agent                        | PostAgentUpdateRequest    | PostAgentUpdateResponse |
 | `/v1/server/{iid}/banner`                          | GET    | Return the server's banner information  |                           | BannerResponse |
-| `/v1/server/{iid}/instances/stream`                | POST   | Open a new unidirectional change stream | | PostInstanceStreamResponse |
-| `/v1/server/{iid}/instances`                       | DELETE | Delete a document by OID                | | DeleteInstanceResponse |
-| `/v1/server/{iid}/instances`                       | GET    | Return a document by OID                | | GetInstanceResponse |
-| `/v1/server/{iid}/instances`                       | PUT    | Update a document by OID                | | PutInstanceResponse |
+| `/v1/server/{iid}/groups/{group_id}/deployers`     | POST   | Create a new deployer                   | PostDeployerRequest       | PostDeployerResponse         |
+| `/v1/server/{iid}/groups/{group_id}`               | DELETE | Remove an existing empty group          |                           | DeleteGroupResponse     |
+| `/v1/server/{iid}/groups/{group_id}`               | GET    | Return details on the group             |                           | GetGroupResponse        |
+| `/v1/server/{iid}/groups`                          | GET    | List existing groups                    |                           | GetGroupResponse         |
+| `/v1/server/{iid}/groups`                          | POST   | Create a new group                      | PostGroupRequest          | PostGroupResponse        |
+| `/v1/server/{iid}/instances/stream`                | POST   | Open a new unidirectional change stream |                           | PostInstanceStreamResponse |
+| `/v1/server/{iid}/instances`                       | DELETE | Delete a document by OID                |                           | DeleteInstanceResponse |
+| `/v1/server/{iid}/instances`                       | GET    | Return a document by OID                |                           | GetInstanceResponse |
+| `/v1/server/{iid}/instances`                       | PUT    | Update a document by OID                |                           | PutInstanceResponse |
 | `/v1/server/{iid}/listeners/stream`                | POST   | Open a new listener change stream       | PostListenerStreamRequest | PostListenerStreamResponse |
 | `/v1/server/{iid}/listeners/{listeners_id}/stream` | POST   | Open a new listener change stream       | PostListenerStreamRequest | PostListenerStreamResponse |
 | `/v1/server/{iid}/listeners/{listeners_id}`        | DELETE | Remove an existing listener             |                           | DeleteListenerResponse |
@@ -29,8 +34,13 @@ responsible for coordinating interactions among instances and persisting data.
 | `/v1/server/{iid}/network/stream`                  | POST   | Open a new network change stream        | PostNetworkStreamRequest  | PostNetworkStreamResponse |
 | `/v1/server/{iid}/network`                         | GET    | List the network table                  | PostNetworkStreamRequest  | PostNetworkStreamResponse |
 | `/v1/server/{iid}/ping`                            | GET    | Send an application-level ping          |                           | GetPingResponse         |
-| `/v1/server/{iid}/session`                         | DELETE | Destroy an existing session             |                           | DeleteSessionResponse |
+| `/v1/server/{iid}/plugins/{plugin_id}`             | DELETE | Remove an existing plugin               |                           | DeletePluginResponse     |
+| `/v1/server/{iid}/plugins/{plugin_id}`             | GET    | Return details on the plugin            |                           | GetPluginResponse        |
+| `/v1/server/{iid}/plugins/{plugin_id}`             | PUT    | Update plugin configuration             | PutPluginRequest          | PutPluginResponse         |
+| `/v1/server/{iid}/plugins`                         | GET    | List installed plugins                  |                           | GetPluginResponse         |
+| `/v1/server/{iid}/plugins`                         | POST   | Install a new plugin                    | PostPluginRequest         | PostPluginResponse        |
 | `/v1/server/{iid}/session/renew`                   | POST   | Renew the current session               |                           | PostSessionRenewResponse |
+| `/v1/server/{iid}/session`                         | DELETE | Destroy an existing session             |                           | DeleteSessionResponse |
 | `/v1/server/{iid}/tunnels/stream`                  | POST   | Open a new tunnel change stream         | PostTunnelStreamRequest   | PostTunnelStreamResponse |
 | `/v1/server/{iid}/tunnels/{tunnel_id}/stream`      | POST   | Open a new tunnel change stream         | PostTunnelStreamRequest   | PostTunnelStreamResponse |
 | `/v1/server/{iid}/tunnels/{tunnel_id}`             | DELETE | Destroy an existing tunnel              |                           | DeleteTunnelResponse |
@@ -45,7 +55,8 @@ responsible for coordinating interactions among instances and persisting data.
 | `/v1/server/{iid}/users/{user_id}`                 | PUT    | Update an existing user account         | PutUserRequest            | PutUserResponse         |
 | `/v1/server/{iid}/users`                           | GET    | List existing user accounts             |                           | GetUserResponse         |
 | `/v1/server/{iid}/users`                           | POST   | Create a new user account               | PostUserRequest           | PostUserResponse        |
-
+| `/v1/server/{iid}/certs/{cert_id}`                 | DELETE | Revoke an existing certificate          |                           | DeleteCertResponse     |
+| `/v1/server/{iid}/certs`                           | POST   | Generate a new certificate              | PostCertRequest           | PostCertResponse        |
 
 ## Instance Configuration
 
